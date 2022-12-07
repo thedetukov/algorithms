@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dart class tasks",
+            "name": "Algorithms",
             "request": "launch",
             "program": "lib/src/main.dart",  
             "type": "dart"
