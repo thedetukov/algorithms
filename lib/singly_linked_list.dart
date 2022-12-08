@@ -1,3 +1,5 @@
 class SinglyLinkedList<T> {
-  // TODO
+  late int length;
+  
+  void add(T) {}
 }
