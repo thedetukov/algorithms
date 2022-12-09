@@ -1,6 +1,6 @@
 class SinglyLinkedList<T> {
-
-  int get length { return 0; }
+  int get length => 0;
 
   void add(T) {}
-}
+  }
+  
