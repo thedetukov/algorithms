@@ -1,11 +1,15 @@
-// ignore_for_file: unnecessary_this
+///
+/// The class implements a manager for Singly Linked List
+///
+/// See https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
+///
 class SinglyLinkedList<T> {
   int get length => this._length;
   int _length = 0;
 
-  void add(T) {
+  void addLast(T value) {
     this._length = this._length + 1;
-    SinglyLinkedList myList = SinglyLinkedList();
+    print("Adding value: '$value' into ends of the list");
+    // SinglyLinkedList myList = SinglyLinkedList();
   }
 }
-

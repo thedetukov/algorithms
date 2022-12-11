@@ -10,8 +10,15 @@ void main() {
 
     test("Length after add an item should be 1", () {
       final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
-      myList.add("Some data");
+      myList.addLast("Some data");
       expect(myList.length, equals(1));
+    });
+
+    test("Length after add an item and clear should be 0", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+      myList.addLast("Some data");
+      myList.clear();
+      expect(myList.length, equals(0));
     });
   });
 
@@ -23,8 +30,15 @@ void main() {
 
     test("Length after add an item should be 1", () {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
-      myList.add(42);
+      myList.addLast(42);
       expect(myList.length, equals(1));
+    });
+
+    test("Length after add an item and clear should be 0", () {
+      final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
+      myList.addLast(42);
+      myList.clear();
+      expect(myList.length, equals(0));
     });
   });
 }
