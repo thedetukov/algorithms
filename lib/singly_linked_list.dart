@@ -12,4 +12,9 @@ class SinglyLinkedList<T> {
     print("Adding value: '$value' into ends of the list");
     // SinglyLinkedList myList = SinglyLinkedList();
   }
+
+    void clear() {
+    this._length =0;
+    // SinglyLinkedList myList = SinglyLinkedList();
+  }
 }
