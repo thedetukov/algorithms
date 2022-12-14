@@ -7,8 +7,6 @@ class SinglyLinkedList<T> {
   int get length => this._length;
   int _length = 0;
 
-  // set addedNode(T addedNode) {}
-
   ///
   /// This method adds the given value to the end of the list
   ///
