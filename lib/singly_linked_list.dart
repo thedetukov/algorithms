@@ -6,17 +6,17 @@
 class SinglyLinkedList<T> {
   int get length => this._length;
   int _length = 0;
-  final SinglyLinkedList<T> myList = SinglyLinkedList<T>();
-  get value => myList;
 
   // set addedNode(T addedNode) {}
 
   ///
   /// This method adds the given value to the end of the list
   ///
-  void addLast(T value) {
+  SinglyLinkedListNode<T> addLast(T value) {
     this._length = this._length + 1;
-    print("Adding value: '$value' into ends of the list"); 
+    print("Adding value: '$value' into ends of the list");
+    final node = SinglyLinkedListNode<T>(value);
+    return node;
   }
 
   ///
@@ -28,8 +28,10 @@ class SinglyLinkedList<T> {
 }
 
 ///
-/// The class implements node management for a Singly Linked List.
+/// The class implements node for a Singly Linked List.
 ///
-class SinglyLinkedListNode<T> extends SinglyLinkedList {
-  final SinglyLinkedListNode<T> addedNode = SinglyLinkedListNode<T>();
+class SinglyLinkedListNode<T> {
+  final T value;
+
+  SinglyLinkedListNode(this.value);
 }
