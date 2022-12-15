@@ -4,30 +4,29 @@
 /// See https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
 ///
 class SinglyLinkedList<T> {
-  
   ///
-  /// Create Getter method
+  /// This Getter method return the number of elements contained in the list
   ///
   int get length => this._length;
 
   ///
   /// The field stores the number of elements contained in the list
-  /// 
+  ///
   int _length;
 
   ///
   /// The field for the first element of the list
-  /// 
+  ///
   SinglyLinkedListNode<T>? first;
 
   ///
   /// The field for the last element of the list
-  /// 
+  ///
   SinglyLinkedListNode<T>? last;
 
   ///
   /// Initialize the created fields in the constructor
-  /// 
+  ///
   SinglyLinkedList()
       : this.first = null,
         this.last = null,
@@ -62,12 +61,12 @@ class SinglyLinkedList<T> {
 ///
 class SinglyLinkedListNode<T> {
   ///
-  /// Create the variable value
+  /// The field for the user data
   ///
   final T value;
 
   ///
-  /// Create a constructor to initialize the variable 'value'
+  /// Initialize the field 'value' in the constructor
   ///
   SinglyLinkedListNode(this.value);
 }
