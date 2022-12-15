@@ -47,6 +47,18 @@ void main() {
 
       expect(myList.last == addedNode, isTrue);
     });
+
+    test("For the newly created list, 'first' should be null", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+
+      expect(myList.first, isNull);
+    });
+
+    test("For the newly created list, 'last' should be null", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+
+      expect(myList.last, isNull);
+    });
   });
 
   group("SinglyLinkedList<int>", () {
@@ -90,6 +102,18 @@ void main() {
       final SinglyLinkedListNode<int> addedNode = myList.addLast(42);
 
       expect(myList.last == addedNode, isTrue);
+    });
+
+    test("For the newly created list, 'first' should be null", () {
+      final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
+
+      expect(myList.first, isNull);
+    });
+
+    test("For the newly created list, 'last' should be null", () {
+      final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
+
+      expect(myList.last, isNull);
     });
   });
 }
