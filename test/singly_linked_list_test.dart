@@ -28,6 +28,7 @@ void main() {
           myList.addLast("Some data");
 
       expect(addedNode.value, equals("Some data"));
+      expect(addedNode.next, isNull);
     });
 
     test("After add first node into list 'first' should be addedNode", () {
@@ -86,6 +87,7 @@ void main() {
       final SinglyLinkedListNode<int> addedNode = myList.addLast(42);
 
       expect(addedNode.value, equals(42));
+      expect(addedNode.next, isNull);
     });
 
     test("After add first node into list 'first' should be addedNode", () {
