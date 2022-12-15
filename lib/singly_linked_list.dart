@@ -4,25 +4,30 @@
 /// See https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
 ///
 class SinglyLinkedList<T> {
+  
   ///
   /// Create Getter method
   ///
   int get length => this._length;
 
   ///
-  /// Create a field '_length' in which we store the current length of the list of items
-  ///
+  /// The field stores the number of elements contained in the list
+  /// 
   int _length;
 
   ///
-  /// Create a fields for the first and last elements of the list
-  ///
+  /// The field for the first element of the list
+  /// 
   SinglyLinkedListNode<T>? first;
+
+  ///
+  /// The field for the last element of the list
+  /// 
   SinglyLinkedListNode<T>? last;
 
   ///
   /// Initialize the created fields in the constructor
-  ///
+  /// 
   SinglyLinkedList()
       : this.first = null,
         this.last = null,
@@ -35,14 +40,10 @@ class SinglyLinkedList<T> {
     this._length = this._length + 1;
     print("Adding value: '$value' into ends of the list");
 
-    ///
-    /// Create a variable 'node' into which we insert an object with a value 'value'
-    ///
+    // Create a node with user data and remember it in the variable declaration
     final node = SinglyLinkedListNode<T>(value);
 
-    ///
-    /// One element added to the list, it is the first and last items
-    ///
+    // One element added to the list, it is the first and last items
     this.first = node;
     this.last = node;
     return node;
