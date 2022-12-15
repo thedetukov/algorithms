@@ -24,24 +24,26 @@ void main() {
     test("addLast should return SinglyLinkedListNode with added value", () {
       final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
 
-      final SinglyLinkedListNode<String> addedNode = myList.addLast("Some data");
+      final SinglyLinkedListNode<String> addedNode =
+          myList.addLast("Some data");
 
       expect(addedNode.value, equals("Some data"));
     });
 
-
-    test("After add first node into list `first` should be addedNode", () {
+    test("After add first node into list 'first' should be addedNode", () {
       final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
 
-      final SinglyLinkedListNode<String> addedNode = myList.addLast("Some data");
+      final SinglyLinkedListNode<String> addedNode =
+          myList.addLast("Some data");
 
       expect(myList.first == addedNode, isTrue);
     });
 
-    test("After add first node into list `last` should be addedNode", () {
+    test("After add first node into list 'last' should be addedNode", () {
       final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
 
-      final SinglyLinkedListNode<String> addedNode = myList.addLast("Some data");
+      final SinglyLinkedListNode<String> addedNode =
+          myList.addLast("Some data");
 
       expect(myList.last == addedNode, isTrue);
     });
@@ -74,7 +76,7 @@ void main() {
       expect(addedNode.value, equals(42));
     });
 
-    test("After add first node into list `first` should be addedNode", () {
+    test("After add first node into list 'first' should be addedNode", () {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       final SinglyLinkedListNode<int> addedNode = myList.addLast(42);
@@ -82,7 +84,7 @@ void main() {
       expect(myList.first == addedNode, isTrue);
     });
 
-    test("After add first node into list `last` should be addedNode", () {
+    test("After add first node into list 'last' should be addedNode", () {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       final SinglyLinkedListNode<int> addedNode = myList.addLast(42);
