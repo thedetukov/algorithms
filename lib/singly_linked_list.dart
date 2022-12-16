@@ -65,6 +65,9 @@ class SinglyLinkedListNode<T> {
   ///
   final T value;
 
+  ///
+  /// The field contains the added value
+  ///
   final T? next;
 
   ///
