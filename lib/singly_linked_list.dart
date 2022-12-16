@@ -65,8 +65,10 @@ class SinglyLinkedListNode<T> {
   ///
   final T value;
 
+  final T? next;
+
   ///
   /// Initializes a new instance of the LinkedListNode<T> class, containing the specified value.
   ///
-  SinglyLinkedListNode(this.value);
+  SinglyLinkedListNode(this.value): this.next = null;
 }
