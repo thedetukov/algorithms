@@ -25,7 +25,7 @@ class SinglyLinkedList<T> {
   SinglyLinkedListNode<T>? last;
 
   ///
-  /// Initialize the created fields in the constructor
+  /// Initializes a new instances of the LinkedList<T> class, containing the specified values.
   ///
   SinglyLinkedList()
       : this.first = null,
@@ -66,7 +66,7 @@ class SinglyLinkedListNode<T> {
   final T value;
 
   ///
-  /// Initialize the field 'value' in the constructor
+  /// Initializes a new instance of the LinkedListNode<T> class, containing the specified value.
   ///
   SinglyLinkedListNode(this.value);
 }
