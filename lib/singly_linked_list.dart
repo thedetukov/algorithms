@@ -5,7 +5,7 @@
 ///
 class SinglyLinkedList<T> {
   ///
-  /// This Getter method return the number of elements contained in the list
+  /// Gets the number of elements contained in the list
   ///
   int get length => this._length;
 
@@ -25,7 +25,7 @@ class SinglyLinkedList<T> {
   SinglyLinkedListNode<T>? last;
 
   ///
-  /// Initializes a new instances of the LinkedList<T> class, containing the specified values.
+  /// Initializes a new instances of the LinkedList<T> class, containing the specified values
   ///
   SinglyLinkedList()
       : this.first = null,
@@ -66,12 +66,16 @@ class SinglyLinkedListNode<T> {
   final T value;
 
   ///
-  /// The field contains the added user data
+  /// The field contains the next add node
   ///
-  final T? next;
+  final SinglyLinkedListNode<T>? next;
+
+  final SinglyLinkedListNode<T>? nextNode;
 
   ///
   /// Initializes a new instance of the LinkedListNode<T> class, containing the specified value
   ///
-  SinglyLinkedListNode(this.value): this.next = null;
+  SinglyLinkedListNode(this.value)
+      : this.next = null,
+        this.nextNode = null;
 }
