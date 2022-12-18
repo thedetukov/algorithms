@@ -66,16 +66,12 @@ class SinglyLinkedListNode<T> {
   final T value;
 
   ///
-  /// The field contains the next add node
+  /// The field for the next element of the list
   ///
   final SinglyLinkedListNode<T>? next;
-
-  final SinglyLinkedListNode<T>? nextNode;
 
   ///
   /// Initializes a new instance of the LinkedListNode<T> class, containing the specified value
   ///
-  SinglyLinkedListNode(this.value)
-      : this.next = null,
-        this.nextNode = null;
+  SinglyLinkedListNode(this.value) : this.next = null;
 }
