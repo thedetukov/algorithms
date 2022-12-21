@@ -24,13 +24,21 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? last;
 
+  SinglyLinkedListNode<T>? firstAddedNode;
+  // SinglyLinkedListNode<T>? secondAddedNode;
+  // SinglyLinkedListNode<T>? nextNode;
+
   ///
   /// Initializes a new instances of the LinkedList<T> class, containing the specified values
   ///
   SinglyLinkedList()
       : this.first = null,
         this.last = null,
-        this._length = 0;
+        this._length = 0 {
+    this.first = this.firstAddedNode;
+    // this.firstAddedNode = this.secondAddedNode;
+    // this.nextNode = this.secondAddedNode;
+  }
 
   ///
   /// This method adds the given value to the end of the list
