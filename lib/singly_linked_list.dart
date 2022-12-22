@@ -24,21 +24,13 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? last;
 
-  SinglyLinkedListNode<T>? firstAddedNode;
-  // SinglyLinkedListNode<T>? secondAddedNode;
-  // SinglyLinkedListNode<T>? nextNode;
-
   ///
   /// Initializes a new instances of the LinkedList<T> class, containing the specified values
   ///
   SinglyLinkedList()
       : this.first = null,
         this.last = null,
-        this._length = 0 {
-    this.first = this.firstAddedNode;
-    // this.firstAddedNode = this.secondAddedNode;
-    // this.nextNode = this.secondAddedNode;
-  }
+        this._length = 0;
 
   ///
   /// This method adds the given value to the end of the list
@@ -48,12 +40,16 @@ class SinglyLinkedList<T> {
     print("Adding value: '$value' into ends of the list");
 
     // Create a node with user data and remember it in the variable declaration
-    final node = SinglyLinkedListNode<T>(value);
+    SinglyLinkedListNode<T>? nextNode = SinglyLinkedListNode<T>(value);
+
+    // Create a link from the last node of the list to a new node
+    this.last?.next = nextNode;
 
     // One element added to the list, it is the first and last items
-    this.first = node;
-    this.last = node;
-    return node;
+    this.first = nextNode;
+    this.last = nextNode;
+
+    return nextNode;
   }
 
   ///
@@ -76,7 +72,7 @@ class SinglyLinkedListNode<T> {
   ///
   /// The field for the next element of the list
   ///
-  final SinglyLinkedListNode<T>? next;
+  SinglyLinkedListNode<T>? next;
 
   ///
   /// Initializes a new instance of the LinkedListNode<T> class, containing the specified value
