@@ -44,9 +44,6 @@ class SinglyLinkedList<T> {
 
     // If the list is empty, the first element of the list is out,`first` = null
     if (this.first == null) {
-      // Added the first element of the list
-      this.first = nextNode;
-
       // One element added to the list, it is the first and last items
       this.first = nextNode;
       this.last = nextNode;
