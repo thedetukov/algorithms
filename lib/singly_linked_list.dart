@@ -40,14 +40,23 @@ class SinglyLinkedList<T> {
     print("Adding value: '$value' into ends of the list");
 
     // Create a node with user data and remember it in the variable declaration
-    SinglyLinkedListNode<T>? nextNode = SinglyLinkedListNode<T>(value);
+    SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
 
-    // Create a link from the last node of the list to a new node
-    this.last?.next = nextNode;
+    // If the list is empty, the first element of the list `first` = null
+    if (this.first == null) {
+      // Added the first element of the list
+      this.first = nextNode;
 
-    // One element added to the list, it is the first and last items
-    this.first = nextNode;
-    this.last = nextNode;
+      //One element added to the list, it is the first and last items
+      this.first = nextNode;
+      this.last = nextNode;
+    } else {
+      // Create a link from the last node of the list to a new node
+      this.last?.next = nextNode;
+
+      // Installed node is the last item in the list
+      this.last = nextNode;
+    }
 
     return nextNode;
   }
