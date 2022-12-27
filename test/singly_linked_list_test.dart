@@ -313,10 +313,8 @@ void main() {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> firstAddedNode =
-          myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode =
-          myList.addLast(37);
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
 
       final SinglyLinkedListNode<int>? nextNode = secondAddedNode.next;
 
@@ -330,11 +328,9 @@ void main() {
         () {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
-      final SinglyLinkedListNode<int> firstAddedNode =
-          myList.addLast(12);
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> secondAddedNode =
-          myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
 
       expect(myList.first == firstAddedNode, isTrue,
@@ -347,10 +343,8 @@ void main() {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> firstAddedNode =
-          myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode =
-          myList.addLast(37);
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
 
       final SinglyLinkedListNode<int>? nextNode = firstAddedNode.next;
@@ -367,10 +361,8 @@ void main() {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> firstAddedNode =
-          myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode =
-          myList.addLast(37);
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
 
       final SinglyLinkedListNode<int>? nextNode = secondAddedNode.next;
@@ -401,10 +393,8 @@ void main() {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> firstAddedNode =
-          myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode =
-          myList.addLast(37);
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
 
       final SinglyLinkedListNode<int>? nextNode = thirdAddedNode.next;
