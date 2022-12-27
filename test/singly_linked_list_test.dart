@@ -203,7 +203,7 @@ void main() {
       final SinglyLinkedListNode<String>? nextNode = thirdAddedNode.next;
 
       expect(nextNode, isNull);
-      expect(nextNode == null, isTrue,
+      expect(nextNode, isNull,
           reason: "next of 'third' node should references to nothing");
     });
 
@@ -321,7 +321,7 @@ void main() {
       final SinglyLinkedListNode<int>? nextNode = secondAddedNode.next;
 
       expect(nextNode, isNull);
-      expect(nextNode == null, isTrue,
+      expect(nextNode, isNull,
           reason: "next of 'second' node should references to nothing");
     });
 
