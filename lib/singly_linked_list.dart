@@ -63,6 +63,12 @@ class SinglyLinkedList<T> {
   ///
   void clear() {
     this._length = 0;
+    // If the list contains one element,`first` != null
+    if (this.first != null) {
+      // One element removed from the list, it is the first and last items
+      this.first = null;
+      this.last = null;
+    }
   }
 }
 
