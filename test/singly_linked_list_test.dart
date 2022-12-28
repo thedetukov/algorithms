@@ -18,27 +18,78 @@ void main() {
     });
 
     test("Length after clear should be 0", () {
-      myList.addLast("Some data 1");
-      myList.addLast("Some data 2");
-      myList.addLast("Some data 3");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdNode =
+          myList.addLast("Thirty Seven");
+
       myList.clear();
+
       expect(myList.length, equals(0));
     });
 
     test("first after clear should be null", () {
-      myList.addLast("Some data 1");
-      myList.addLast("Some data 2");
-      myList.addLast("Some data 3");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdNode =
+          myList.addLast("Thirty Seven");
+
       myList.clear();
+
       expect(myList.first, isNull);
     });
 
     test("last after clear should be null", () {
-      myList.addLast("Some data 1");
-      myList.addLast("Some data 2");
-      myList.addLast("Some data 3");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdNode =
+          myList.addLast("Thirty Seven");
+
       myList.clear();
+
       expect(myList.last, isNull);
+    });
+
+    test("first node after clear should reference to null in property next",
+        () {
+      final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdNode =
+          myList.addLast("Thirty Seven");
+
+      myList.clear();
+
+      expect(firstNode.next, isNull);
+    });
+
+    test("second node after clear should reference to null in property next",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdNode =
+          myList.addLast("Thirty Seven");
+
+      myList.clear();
+
+      expect(secondNode.next, isNull);
     });
 
     test("addLast should return SinglyLinkedListNode with added value", () {
@@ -231,6 +282,32 @@ void main() {
       myList.addLast(37);
       myList.clear();
       expect(myList.last, isNull);
+    });
+
+    test("first node after clear should reference to null in property next",
+        () {
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
+
+      myList.clear();
+
+      expect(firstAddedNode.next, isNull);
+    });
+
+    test("second node after clear should reference to null in property next",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
+
+      myList.clear();
+
+      expect(secondAddedNode.next, isNull);
     });
 
     test("addLast should return SinglyLinkedListNode with added value", () {
