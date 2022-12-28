@@ -14,11 +14,25 @@ void main() {
       expect(myList.length, equals(1));
     });
 
-    test("Length after addLast an item and clear should be 0", () {
+    test("Length after clear should be 0", () {
       final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
       myList.addLast("Some data");
       myList.clear();
       expect(myList.length, equals(0));
+    });
+
+    test("'first' after clear should be 'null'", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+      myList.addLast("Some data");
+      myList.clear();
+      expect(myList.first, isNull);
+    });
+
+    test("'last' after clear should be 'null'", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+      myList.addLast("Some data");
+      myList.clear();
+      expect(myList.last, isNull);
     });
 
     test("addLast should return SinglyLinkedListNode with added value", () {
@@ -226,11 +240,25 @@ void main() {
       expect(myList.length, equals(1));
     });
 
-    test("Length after addLast an item and clear should be 0", () {
+    test("Length after clear should be 0", () {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
       myList.addLast(42);
       myList.clear();
       expect(myList.length, equals(0));
+    });
+
+    test("'first' after clear should be 'null'", () {
+      final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
+      myList.addLast(42);
+      myList.clear();
+      expect(myList.first, isNull);
+    });
+
+    test("'last' after clear should be 'null'", () {
+      final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
+      myList.addLast(42);
+      myList.clear();
+      expect(myList.last, isNull);
     });
 
     test("addLast should return SinglyLinkedListNode with added value", () {
