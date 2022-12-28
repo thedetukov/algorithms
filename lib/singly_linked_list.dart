@@ -64,7 +64,7 @@ class SinglyLinkedList<T> {
   void clear() {
     this._length = 0;
 
-    // The only one item removed from the list, it is the first and last items
+    // When the list is empty, `first` = null and `last` = null
     this.first = null;
     this.last = null;
   }
