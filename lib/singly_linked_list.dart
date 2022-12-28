@@ -37,7 +37,6 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T> addLast(T value) {
     this._length = this._length + 1;
-    print("Adding value: '$value' into ends of the list");
 
     // Create a node with user data and remember it in the variable declaration
     SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
