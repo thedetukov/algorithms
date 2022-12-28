@@ -293,7 +293,7 @@ void main() {
 
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
 
       expect(myList.first, equals(firstAddedNode));
     });
@@ -305,7 +305,7 @@ void main() {
 
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
 
       expect(myList.last == secondAddedNode, isTrue);
     });
@@ -316,7 +316,7 @@ void main() {
       final SinglyLinkedList<int> myList = SinglyLinkedList<int>();
 
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
 
       expect(firstAddedNode.next, isNotNull);
       expect(firstAddedNode.next, equals(secondAddedNode));
@@ -329,7 +329,7 @@ void main() {
 
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
 
       expect(secondAddedNode.next, isNull);
     });
@@ -341,9 +341,9 @@ void main() {
 
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
 
       expect(myList.first, equals(firstAddedNode));
     });
@@ -355,9 +355,9 @@ void main() {
 
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
 
       expect(firstAddedNode.next, isNotNull);
       expect(firstAddedNode.next, equals(secondAddedNode));
@@ -370,8 +370,8 @@ void main() {
 
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
-      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
 
       expect(secondAddedNode.next, isNotNull);
       expect(secondAddedNode.next, equals(thirdAddedNode));
@@ -385,8 +385,8 @@ void main() {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
-      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
 
       expect(myList.last, equals(thirdAddedNode));
     });
@@ -399,8 +399,8 @@ void main() {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
       // ignore: unused_local_variable
-      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(37);
-      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
 
       expect(thirdAddedNode.next, isNull);
     });
