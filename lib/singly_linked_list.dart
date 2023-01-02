@@ -62,9 +62,16 @@ class SinglyLinkedList<T> {
   ///
   void clear() {
     this._length = 0;
-
-    this.first?.next = null;
-
+    // Declare the local variable `currentNode` in the way we will remember the first node from the list
+    var currentNode = this.first;
+    // Create a loop to sort through all the nodes current node we remove the reference to the previous node
+    while (currentNode?.next != null) {
+      var currentNext = currentNode?.next;
+      // In current node we remove the reference to the previous node
+      currentNode?.next = null;
+      // After removed the node, we pass the reference to the next node
+      currentNode = currentNext;
+    }
     // When the list is empty, `first` = null and `last` = null
     this.first = null;
     this.last = null;
