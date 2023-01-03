@@ -237,7 +237,6 @@ void main() {
       expect(myList.first, equals(thirdAddedNode));
     });
 
-
     test("Print all items of a list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
@@ -458,6 +457,18 @@ void main() {
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addFirst(37);
 
       expect(myList.first, equals(thirdAddedNode));
+    });
+
+    test("Print all items of a list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> firstNode = myList.addLast(12);
+      final SinglyLinkedListNode<int> secondNode = myList.addLast(99);
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> thirdNode = myList.addLast(37);
+
+      myList.printList();
+
+      expect(myList, hasLength(3));
     });
 
     test(
