@@ -81,6 +81,7 @@ class SinglyLinkedList<T> {
 
     return nextNode;
   }
+
   ///
   /// This method prints all items of the list
   ///
