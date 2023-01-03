@@ -58,6 +58,31 @@ class SinglyLinkedList<T> {
   }
 
   ///
+  /// This method adds the given value to the beginning of the list
+  ///
+    SinglyLinkedListNode<T> addFirst(T value) {
+    this._length = this._length + 1;
+
+    // Create a node with user data and remember it in the variable declaration
+    SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
+
+    // If the list is empty, the first element of the list is out,`first` = null
+    if (this.first == null) {
+      // One element added to the list, it is the first and last items
+      this.first = nextNode;
+      this.last = nextNode;
+    } else {
+      // Create a link from the new node of the list to a next node
+      this.first?.next = nextNode;
+
+      // Installed node is the first item in the list
+      this.first = nextNode;
+    }
+
+    return nextNode;
+  }
+
+  ///
   /// This method removes all items of the list
   ///
   void clear() {
