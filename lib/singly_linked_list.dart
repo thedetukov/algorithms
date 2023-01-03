@@ -60,7 +60,7 @@ class SinglyLinkedList<T> {
   ///
   /// This method adds the given value to the beginning of the list
   ///
-    SinglyLinkedListNode<T> addFirst(T value) {
+  SinglyLinkedListNode<T> addFirst(T value) {
     this._length = this._length + 1;
 
     // Create a node with user data and remember it in the variable declaration
@@ -80,6 +80,15 @@ class SinglyLinkedList<T> {
     }
 
     return nextNode;
+  }
+
+  void printList() {
+    var currentNode = this.first;
+    while (currentNode?.next != null) {
+      final nextNode = currentNode?.next;
+      currentNode = nextNode;
+      print(currentNode);
+    }
   }
 
   ///

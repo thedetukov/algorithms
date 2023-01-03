@@ -237,6 +237,21 @@ void main() {
       expect(myList.first, equals(thirdAddedNode));
     });
 
+
+    test("Print all items of a list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdNode =
+          myList.addLast("Thirty Seven");
+
+      myList.printList();
+
+      expect(myList, hasLength(3));
+    });
+
     test(
         "After add three nodes into list next of third node should references to nothing",
         () {
