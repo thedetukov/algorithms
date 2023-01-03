@@ -81,11 +81,17 @@ class SinglyLinkedList<T> {
 
     return nextNode;
   }
-
+  ///
+  /// This method prints all items of the list
+  ///
   void printList() {
+    // Declare the local variable `currentNode` in the way we will remember the first node from the list
     var currentNode = this.first;
+    // Create a loop to sort through all the nodes current node we remove the reference to the previous node
     while (currentNode?.next != null) {
+      // Declare the local variable `nextNode` in the way we will remember the reference to the next node
       final nextNode = currentNode?.next;
+      // In current node pass the reference to the next node
       currentNode = nextNode;
       print(currentNode);
     }
@@ -103,7 +109,7 @@ class SinglyLinkedList<T> {
       final nextNode = currentNode?.next;
       // In current node we remove the reference to the previous node
       currentNode?.next = null;
-      // After removed the node, we pass the reference to the next node
+      // After removed the node, pass the reference to the next node
       currentNode = nextNode;
     }
     // When the list is empty, `first` = null and `last` = null
