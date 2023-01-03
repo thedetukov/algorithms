@@ -58,7 +58,7 @@ class SinglyLinkedList<T> {
   }
 
   ///
-  /// This method removes a value from the end of the list
+  /// This method removes all items of the list
   ///
   void clear() {
     this._length = 0;
@@ -66,11 +66,11 @@ class SinglyLinkedList<T> {
     var currentNode = this.first;
     // Create a loop to sort through all the nodes current node we remove the reference to the previous node
     while (currentNode?.next != null) {
-      var currentNext = currentNode?.next;
+      final nextNode = currentNode?.next;
       // In current node we remove the reference to the previous node
       currentNode?.next = null;
       // After removed the node, we pass the reference to the next node
-      currentNode = currentNext;
+      currentNode = nextNode;
     }
     // When the list is empty, `first` = null and `last` = null
     this.first = null;
