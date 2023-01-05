@@ -17,7 +17,7 @@ void main() {
       expect(myList.length, equals(1));
     });
 
-    test("Length after addLast an one item should be 1", () {
+    test("Length after addFirst an one item should be 1", () {
       myList.addFirst("Some data");
       expect(myList.length, equals(1));
     });
@@ -129,17 +129,17 @@ void main() {
 
     test("first node should reference to null in property next after clear ",
         () {
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addFirst("Twelve");
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondNode =
           myList.addFirst("Ninety Nine");
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdNode =
           myList.addFirst("Thirty Seven");
 
       myList.clear();
 
-      expect(firstNode.next, isNull);
+      expect(thirdNode.next, isNull);
     });
 
     test("second node after clear should reference to null in property next",
@@ -235,13 +235,13 @@ void main() {
     test(
         "After add two nodes into beginning of the list, first should references to first added node",
         () {
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addFirst("Hello");
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.first, equals(secondAddedNode));
     });
 
     test(
@@ -257,15 +257,15 @@ void main() {
     });
 
     test(
-        "After add two nodes into beginning of the list, last should references to second added node",
+        "After add two nodes into beginning of the list, last should references to last node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addFirst("Hello");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
 
-      expect(myList.last, equals(secondAddedNode));
+      expect(myList.last, equals(firstAddedNode));
     });
 
     test(
@@ -290,8 +290,8 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
 
-      expect(firstAddedNode.next, isNotNull);
-      expect(firstAddedNode.next, equals(secondAddedNode));
+      expect(secondAddedNode.next, isNotNull);
+      expect(secondAddedNode.next, equals(firstAddedNode));
     });
 
     test(
@@ -302,22 +302,20 @@ void main() {
           myList.addLast("Hello");
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addLast("World");
-
       final SinglyLinkedListNode<String>? nextNode = secondAddedNode.next;
 
       expect(nextNode, isNull);
     });
 
     test(
-        "After add two nodes into beginning of the list, next of second node should references to nothing",
+        "After add two nodes into beginning of the list, next of last node should references to nothing",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addFirst("Hello");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
-
-      final SinglyLinkedListNode<String>? nextNode = secondAddedNode.next;
+      final SinglyLinkedListNode<String>? nextNode = firstAddedNode.next;
 
       expect(nextNode, isNull);
     });
@@ -339,22 +337,21 @@ void main() {
     test(
         "After add three nodes into beginning of the list, first should references to first added node",
         () {
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addFirst("Hello");
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Sun");
 
-      expect(myList.first == firstAddedNode, isTrue);
+      expect(myList.first == thirdAddedNode, isTrue);
     });
 
     test(
         "After add three nodes into list next of first node should references to second added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Hello");
       final SinglyLinkedListNode<String> secondAddedNode =
@@ -374,12 +371,11 @@ void main() {
           myList.addFirst("Hello");
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Sun");
 
-      expect(firstAddedNode.next, isNotNull);
-      expect(firstAddedNode.next, equals(secondAddedNode));
+      expect(thirdAddedNode.next, isNotNull);
+      expect(thirdAddedNode.next, equals(secondAddedNode));
     });
 
     test(
@@ -399,16 +395,16 @@ void main() {
     test(
         "After add three nodes into beginning of the list, next of second node should references to third added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addFirst("Hello");
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Sun");
 
       expect(secondAddedNode.next, isNotNull);
-      expect(secondAddedNode.next, equals(thirdAddedNode));
+      expect(secondAddedNode.next, equals(firstAddedNode));
     });
 
     test(
@@ -426,18 +422,32 @@ void main() {
     });
 
     test(
-        "After add three nodes into beginning of the list, last should references to third added node",
+        "After add three nodes into beginning of the list, last should references to first added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addFirst("Hello");
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("World");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Sun");
 
-      expect(myList.last, equals(thirdAddedNode));
+      expect(myList.last, equals(firstAddedNode));
+    });
+
+    test(
+        "After adding three nodes to the beginning of the list, the added node must be at the beginning of the list",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Hello");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("World");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode = myList.addLast("Sun");
+
+      expect(myList.first, equals(firstAddedNode));
     });
 
     test(
@@ -458,6 +468,7 @@ void main() {
     test("Print all items of a list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondNode =
           myList.addLast("Ninety Nine");
       // ignore: unused_local_variable
@@ -472,6 +483,7 @@ void main() {
     test("Print all items of a list, added from the beginning of the list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addFirst("Twelve");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondNode =
           myList.addFirst("Ninety Nine");
       // ignore: unused_local_variable
@@ -536,7 +548,7 @@ void main() {
       expect(myList.length, equals(1));
     });
 
-    test("Length after addLast an one item should be 1", () {
+    test("Length after addFirst an one item should be 1", () {
       myList.addFirst(42);
       expect(myList.length, equals(1));
     });
@@ -605,15 +617,15 @@ void main() {
     test(
         "first node after clear of list should reference to null in property next",
         () {
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addFirst(37);
 
       myList.clear();
 
-      expect(firstAddedNode.next, isNull);
+      expect(thirdAddedNode.next, isNull);
     });
 
     test("second node after clear should reference to null in property next",
@@ -671,12 +683,6 @@ void main() {
       expect(myList.first, equals(addedNode));
     });
 
-    // test("After add first node first should be addedNode", () {
-    //   final SinglyLinkedListNode<int> addedNode = myList.addFirst(42);
-
-    //   expect(myList.first, equals(addedNode));
-    // });
-
     test("After add first node into list last should be addedNode", () {
       final SinglyLinkedListNode<int> addedNode = myList.addLast(42);
 
@@ -702,11 +708,11 @@ void main() {
     test(
         "After add two nodes into beginning of the list, first should references to first added node",
         () {
-      final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.first, equals(secondAddedNode));
     });
 
     test(
@@ -722,11 +728,11 @@ void main() {
     test(
         "After add two nodes into beginning of the list, last should references to second added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
 
-      expect(myList.last == secondAddedNode, isTrue);
+      expect(myList.last == firstAddedNode, isTrue);
     });
 
     test(
@@ -745,8 +751,8 @@ void main() {
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
 
-      expect(firstAddedNode.next, isNotNull);
-      expect(firstAddedNode.next, equals(secondAddedNode));
+      expect(secondAddedNode.next, isNotNull);
+      expect(secondAddedNode.next, equals(firstAddedNode));
     });
 
     test(
@@ -762,11 +768,11 @@ void main() {
     test(
         "After add two nodes into beginning of the list, next of second node should references to nothing",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
 
-      expect(secondAddedNode.next, isNull);
+      expect(firstAddedNode.next, isNull);
     });
 
     test(
@@ -784,13 +790,13 @@ void main() {
     test(
         "After add three nodes into beginning of the list, first should references to first added node",
         () {
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addFirst(37);
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.first, equals(thirdAddedNode));
     });
 
     test(
@@ -815,8 +821,8 @@ void main() {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addFirst(37);
 
-      expect(firstAddedNode.next, isNotNull);
-      expect(firstAddedNode.next, equals(secondAddedNode));
+      expect(thirdAddedNode.next, isNotNull);
+      expect(thirdAddedNode.next, equals(secondAddedNode));
     });
 
     test(
@@ -834,13 +840,13 @@ void main() {
     test(
         "After add three nodes into beginning of the list, next of second node should references to third added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addFirst(37);
 
       expect(secondAddedNode.next, isNotNull);
-      expect(secondAddedNode.next, equals(thirdAddedNode));
+      expect(secondAddedNode.next, equals(firstAddedNode));
     });
 
     test(
@@ -856,19 +862,31 @@ void main() {
     });
 
     test(
-        "After add three nodes into beginning of the list, last should references to third added node",
+        "After add three nodes into beginning of the list, last should references to first added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondAddedNode = myList.addFirst(99);
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdAddedNode = myList.addFirst(37);
 
-      expect(myList.last, equals(thirdAddedNode));
+      expect(myList.last, equals(firstAddedNode));
     });
 
     test(
         "After adding three nodes to the list, the added node must be at the beginning of the list",
+        () {
+      final SinglyLinkedListNode<int> firstAddedNode = myList.addLast(12);
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> secondAddedNode = myList.addLast(99);
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<int> thirdAddedNode = myList.addLast(37);
+
+      expect(myList.first, equals(firstAddedNode));
+    });
+
+    test(
+        "After adding three nodes to the beginning of the list, the added node must be at the beginning of the list",
         () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstAddedNode = myList.addFirst(12);
@@ -882,6 +900,7 @@ void main() {
     test("Print all items of a list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstNode = myList.addLast(12);
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondNode = myList.addLast(99);
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdNode = myList.addLast(37);
@@ -894,6 +913,7 @@ void main() {
     test("Print all items of a list, added from the beginning of the list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> firstNode = myList.addFirst(12);
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<int> secondNode = myList.addFirst(99);
       // ignore: unused_local_variable
       final SinglyLinkedListNode<int> thirdNode = myList.addFirst(37);
