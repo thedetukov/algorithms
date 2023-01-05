@@ -71,9 +71,10 @@ class SinglyLinkedList<T> {
       // One element added to the list, it is the first and last items
       this.first = nextNode;
       this.last = nextNode;
+      nextNode.next = null;
     } else {
       // Create a link from the new node of the list to a next node
-      this.first?.next = nextNode;
+      this.last?.next = nextNode;
 
       // Installed node is the first item in the list
       this.first = nextNode;
