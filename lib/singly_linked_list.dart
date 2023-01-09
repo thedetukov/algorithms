@@ -96,6 +96,12 @@ class SinglyLinkedList<T> {
     }
   }
 
+  SinglyLinkedListNode getByIndex(int index) {
+    SinglyLinkedListNode indexNode = SinglyLinkedListNode(index);
+
+    return indexNode;
+  }
+
   ///
   /// This method removes all items of the list
   ///

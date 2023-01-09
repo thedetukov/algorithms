@@ -539,5 +539,37 @@ void main() {
 
       expect(firstAddedNode.next, isNull);
     });
+
+    test("Returns a node by serial number in method addFirst", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addFirst("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addFirst("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addFirst("Thirty Seven");
+      // ignore: unused_local_variable
+      myList.getByIndex(0);
+
+      expect(0, equals(thirdAddedNode));
+    });
+
+    test("Returns a node by serial number in method addLast", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      // ignore: unused_local_variable
+      myList.getByIndex(0);
+
+      expect(0, equals(firstAddedNode));
+    });
   });
 }
