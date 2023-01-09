@@ -72,12 +72,10 @@ class SinglyLinkedList<T> {
       this.first = nextNode;
       this.last = nextNode;
     } else {
-      // Declare a variable in which we will remember first item
-      final oldFirstNode = this.first;
-      // In first we will remember added node
+      // Create a link to the first node
+      nextNode.next = this.first;
+      // In first we will remember added node implementation without extra variable
       this.first = nextNode;
-      // In next node pass the reference to the first node
-      nextNode.next = oldFirstNode;
     }
 
     return nextNode;
