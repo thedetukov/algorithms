@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 ///
 /// The class implements a manager for Singly Linked List
 ///
@@ -96,10 +98,27 @@ class SinglyLinkedList<T> {
     }
   }
 
-  SinglyLinkedListNode getByIndex(int index) {
-    SinglyLinkedListNode indexNode = SinglyLinkedListNode(index);
-
-    return indexNode;
+  //
+  // This method returns a node by its index
+  //
+  SinglyLinkedListNode<T> getByIndex(int index) {
+    // Declare the local variable `currentNode` in the way we will remember the first node from the list
+    var currentNode = this.first;
+    // Declare the local variable `counter` with value 0
+    int counter = 0;
+    // Create a loop to sort through all the nodes and check that the node is not equal null
+    while (currentNode != null) {
+      // If the counter is equal to the index, return current node
+      if (counter == index) {
+        return currentNode;
+      }
+      // Increment counter by 1
+      ++counter;
+      // In current node pass the reference to the next node
+      currentNode = currentNode.next;
+    }
+    // If the requested index does not exist, return an exception
+    return throw FormatException("Specified index is not the list");
   }
 
   ///
