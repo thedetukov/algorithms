@@ -122,6 +122,17 @@ class SinglyLinkedList<T> {
   }
 
   ///
+  /// Adds a new node containing the specified value after the specified existing node in the SinglyLinkedList<T>.
+  ///
+  SinglyLinkedListNode<T> addAfter(SinglyLinkedListNode<T> node, T value) {
+    this._length = this._length + 1;
+    SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
+    node.next = nextNode;
+
+    return node;
+  }
+
+  ///
   /// This method removes all items of the list
   ///
   void clear() {

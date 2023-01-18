@@ -221,6 +221,28 @@ void main() {
     });
   });
 
+  group("Tests for method addAfter", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test(
+        "Adds a new node containing the specified value after the specified existing node in the list",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      myList.printList();
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addAfter(firstAddedNode, "Thirty Seven");
+      myList.printList();
+    });
+  });
+
   group("Unsorted", () {
     late SinglyLinkedList<String> myList;
     setUp(() {
