@@ -126,10 +126,11 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T> addAfter(SinglyLinkedListNode<T> node, T value) {
     this._length = this._length + 1;
-    SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
-    node.next = nextNode;
+    SinglyLinkedListNode<T> addNode = SinglyLinkedListNode<T>(value);
+    node.next = addNode;
+    addNode.next=this.last;
 
-    return node;
+    return addNode;
   }
 
   ///
