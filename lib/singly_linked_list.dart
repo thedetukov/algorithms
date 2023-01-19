@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 ///
 /// The class implements a manager for Singly Linked List
 ///
@@ -38,7 +36,7 @@ class SinglyLinkedList<T> {
   /// This method adds the given value to the end of the list
   ///
   SinglyLinkedListNode<T> addLast(T value) {
-    this._length = this._length + 1;
+    ++this._length;
 
     // Create a node with user data and remember it in the variable declaration
     SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
@@ -63,7 +61,7 @@ class SinglyLinkedList<T> {
   /// This method adds the given value to the beginning of the list
   ///
   SinglyLinkedListNode<T> addFirst(T value) {
-    this._length = this._length + 1;
+    ++this._length;
 
     // Create a node with user data and remember it in the variable declaration
     SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
@@ -125,7 +123,7 @@ class SinglyLinkedList<T> {
   /// Adds a new node containing the specified value after the specified existing node in the SinglyLinkedList<T>.
   ///
   SinglyLinkedListNode<T> addAfter(SinglyLinkedListNode<T> node, T value) {
-    this._length = this._length + 1;
+    ++this._length;
     // Create a node with user data and remember it in the variable declaration
     SinglyLinkedListNode<T> addNode = SinglyLinkedListNode<T>(value);
     // Create a link to the next node after added node
