@@ -240,7 +240,22 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addAfter(firstAddedNode, "Thirty Seven");
       myList.printList();
+
       expect(myList.length, equals(3));
+    });
+
+    test(
+        "After add three nodes into list next of third node should references to second added node",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addAfter(firstAddedNode, "Thirty Seven");
+
       expect(thirdAddedNode.next, equals(secondAddedNode));
     });
   });
