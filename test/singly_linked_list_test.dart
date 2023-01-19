@@ -72,7 +72,7 @@ void main() {
       expect(myList.first, isNull);
     });
 
-    test("first should be null after clear ", () {
+    test("First should be null after clear ", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addFirst("Twelve");
       // ignore: unused_local_variable
@@ -87,7 +87,7 @@ void main() {
       expect(myList.first, isNull);
     });
 
-    test("last after clear should be null", () {
+    test("Last after clear should be null", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
       // ignore: unused_local_variable
@@ -102,7 +102,7 @@ void main() {
       expect(myList.last, isNull);
     });
 
-    test("last should be null after clear ", () {
+    test("Last should be null after clear ", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addFirst("Twelve");
       // ignore: unused_local_variable
@@ -117,7 +117,7 @@ void main() {
       expect(myList.last, isNull);
     });
 
-    test("first node after clear should reference to null in property next",
+    test("First node after clear should reference to null in property next",
         () {
       final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
       // ignore: unused_local_variable
@@ -132,7 +132,7 @@ void main() {
       expect(firstNode.next, isNull);
     });
 
-    test("first node should reference to null in property next after clear ",
+    test("First node should reference to null in property next after clear ",
         () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addFirst("Twelve");
@@ -147,7 +147,7 @@ void main() {
       expect(thirdNode.next, isNull);
     });
 
-    test("second node after clear should reference to null in property next",
+    test("Second node after clear should reference to null in property next",
         () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addLast("Twelve");
@@ -162,7 +162,7 @@ void main() {
       expect(secondNode.next, isNull);
     });
 
-    test("second node after clear should reference to null in property next",
+    test("Second node after clear should reference to null in property next",
         () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstNode = myList.addFirst("Twelve");

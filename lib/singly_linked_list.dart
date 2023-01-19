@@ -130,7 +130,7 @@ class SinglyLinkedList<T> {
     addNode.next = node.next;
     // Create a link to the added node
     node.next = addNode;
-
+    this.last = addNode;
     return addNode;
   }
 
