@@ -244,6 +244,106 @@ void main() {
       expect(myList.length, equals(3));
     });
 
+    test("Adds a node to a list of one node", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addAfter(firstAddedNode, "Ninety Nine");
+
+      expect(myList.length, equals(2));
+    });
+
+    test("After add two nodes into list first should be firstAddedNode", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addAfter(firstAddedNode, "Ninety Nine");
+
+      expect(myList.first, equals(firstAddedNode));
+    });
+
+    test("After add two nodes into list last should be secondAddedNode", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addAfter(firstAddedNode, "Ninety Nine");
+
+      expect(myList.last, equals(secondAddedNode));
+    });
+
+    test(
+        "After add two nodes into list next of first node should references to second added node",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addAfter(firstAddedNode, "Ninety Nine");
+
+      expect(firstAddedNode.next, equals(secondAddedNode));
+    });
+
+    test(
+        "After add two nodes into list next of last node should references to nothing",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addAfter(firstAddedNode, "Ninety Nine");
+
+      expect(secondAddedNode.next, isNull);
+    });
+
+    test(
+        "After add three nodes into list first should references to first added node",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addAfter(firstAddedNode, "Thirty Seven");
+
+      expect(myList.first, equals(firstAddedNode));
+    });
+
+    test(
+        "After add three nodes into list last should references to second added node",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addAfter(secondAddedNode, "Thirty Seven");
+
+      expect(myList.last, equals(thirdAddedNode));
+    });
+
+    test(
+        "After add three nodes into list next of first node should references to third added node",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addAfter(firstAddedNode, "Thirty Seven");
+
+      expect(firstAddedNode.next, equals(thirdAddedNode));
+    });
+
     test(
         "After add three nodes into list next of third node should references to second added node",
         () {
@@ -257,6 +357,21 @@ void main() {
           myList.addAfter(firstAddedNode, "Thirty Seven");
 
       expect(thirdAddedNode.next, equals(secondAddedNode));
+    });
+
+    test(
+        "After add three nodes into list next of second node should references to nothing",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addAfter(firstAddedNode, "Thirty Seven");
+
+      expect(secondAddedNode.next, isNull);
     });
   });
 
