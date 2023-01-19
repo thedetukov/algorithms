@@ -128,7 +128,8 @@ class SinglyLinkedList<T> {
     this._length = this._length + 1;
     SinglyLinkedListNode<T> addNode = SinglyLinkedListNode<T>(value);
     node.next = addNode;
-    addNode.next = this.last;
+    // addNode.next = this.last;
+    // node = addNode;
 
     return addNode;
   }

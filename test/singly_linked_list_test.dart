@@ -240,6 +240,8 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addAfter(firstAddedNode, "Thirty Seven");
       myList.printList();
+      expect(myList.length, equals(3));
+      expect(thirdAddedNode.next, equals(secondAddedNode));
     });
   });
 
