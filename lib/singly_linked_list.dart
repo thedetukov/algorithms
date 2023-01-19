@@ -126,10 +126,12 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T> addAfter(SinglyLinkedListNode<T> node, T value) {
     this._length = this._length + 1;
+    // Create a node with user data and remember it in the variable declaration
     SinglyLinkedListNode<T> addNode = SinglyLinkedListNode<T>(value);
+    // Create a link to the next node after added node
+    addNode.next = node.next;
+    // Create a link to the added node
     node.next = addNode;
-    // addNode.next = this.last;
-    // node = addNode;
 
     return addNode;
   }
