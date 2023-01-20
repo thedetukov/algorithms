@@ -478,7 +478,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
       final SinglyLinkedListNode<String> fourthAddedNode =
-          myList.addLast("Thirty Seven");
+          myList.addLast("Ninety nine");
       final SinglyLinkedListNode<String>? findNode =
           myList.findLast("Ninety Nine");
 
