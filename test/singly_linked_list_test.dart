@@ -393,7 +393,7 @@ void main() {
       myList = SinglyLinkedList<String>();
     });
 
-    test("Search first node by value in the list", () {
+    test("Search first node by value if the value is one in the list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
@@ -406,6 +406,41 @@ void main() {
           myList.findFirst("Thirty Seven");
 
       expect(findNode, thirdAddedNode);
+    });
+
+    test("Search first node by value if the value is not alone in the list",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> fourthAddedNode =
+          myList.addLast("Ninety Nine");
+      final SinglyLinkedListNode<String>? findNode =
+          myList.findFirst("Ninety Nine");
+
+      expect(findNode, secondAddedNode);
+    });
+
+    test("If node by value is not in the list method should return nothing",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      final SinglyLinkedListNode<String>? findNode = myList.findFirst("Ten");
+
+      expect(findNode, isNull);
     });
   });
   group("Unsorted", () {

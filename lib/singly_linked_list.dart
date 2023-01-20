@@ -145,9 +145,9 @@ class SinglyLinkedList<T> {
     var currentNode = this.first;
     while (currentNode != null) {
       if (currentNode.value == value) {
+        print(currentNode.value);
         return currentNode;
       }
-      // In current node pass the reference to the next node
       currentNode = currentNode.next;
     }
     return null;
