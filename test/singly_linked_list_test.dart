@@ -387,6 +387,27 @@ void main() {
     });
   });
 
+  group("Tests for method findFirst", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test("Search first node by value in the list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      final SinglyLinkedListNode<String>? findNode =
+          myList.findFirst("Thirty Seven");
+
+      expect(findNode, thirdAddedNode);
+    });
+  });
   group("Unsorted", () {
     late SinglyLinkedList<String> myList;
     setUp(() {

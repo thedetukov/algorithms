@@ -139,6 +139,21 @@ class SinglyLinkedList<T> {
   }
 
   ///
+  /// Search first node by value. Return null if list does not contain such value
+  ///
+  SinglyLinkedListNode<T>? findFirst(T value) {
+    var currentNode = this.first;
+    while (currentNode != null) {
+      if (currentNode.value == value) {
+        return currentNode;
+      }
+      // In current node pass the reference to the next node
+      currentNode = currentNode.next;
+    }
+    return null;
+  }
+
+  ///
   /// This method removes all items of the list
   ///
   void clear() {
