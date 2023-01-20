@@ -145,10 +145,28 @@ class SinglyLinkedList<T> {
     var currentNode = this.first;
     while (currentNode != null) {
       if (currentNode.value == value) {
-        print(currentNode.value);
         return currentNode;
       }
       currentNode = currentNode.next;
+    }
+    return null;
+  }
+
+  ///
+  /// Search last node by value. Return null if list does not contain such value.
+  ///
+  SinglyLinkedListNode<T>? findLast(T value) {
+    var currentNode = this.first;
+    int i = 0;
+    while (i <= _length) {
+      i++;
+      while (currentNode != null) {
+        if (currentNode.value == value) {
+          print(currentNode.value);
+          return currentNode;
+        }
+        currentNode = currentNode.next;
+      }
     }
     return null;
   }
