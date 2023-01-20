@@ -130,7 +130,11 @@ class SinglyLinkedList<T> {
     addNode.next = node.next;
     // Create a link to the added node
     node.next = addNode;
-    this.last = addNode;
+    // Change the last if the added node is at the end of the list
+    if (addNode.next == null) {
+      this.last = addNode;
+    }
+
     return addNode;
   }
 
