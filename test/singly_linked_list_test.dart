@@ -314,10 +314,8 @@ void main() {
     test(
         "After add three nodes into list last should references to second added node",
         () {
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addLast("Ninety Nine");
       // ignore: unused_local_variable
