@@ -485,7 +485,7 @@ void main() {
       expect(findNode, fourthAddedNode);
     });
 
-    test("Search last node by value if the value is no one in the list", () {
+    test("Search node by value if the value is no one in the list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");

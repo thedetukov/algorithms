@@ -159,7 +159,9 @@ class SinglyLinkedList<T> {
     var currentNode = this.first;
     while (currentNode != null) {
       if (currentNode.value == value) {
-        return currentNode;
+        var searchNode = currentNode;
+        
+        return searchNode;
       }
       currentNode = currentNode.next;
     }
