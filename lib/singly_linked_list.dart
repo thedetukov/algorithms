@@ -157,7 +157,8 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? findLast(T value) {
     var currentNode = this.first;
-    SinglyLinkedListNode<T>? searchNode;
+    // ignore: avoid_init_to_null
+    SinglyLinkedListNode<T>? searchNode = null;
     while (currentNode != null) {
       if (currentNode.value == value) {
         searchNode = currentNode;
