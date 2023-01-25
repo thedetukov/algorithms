@@ -157,15 +157,14 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? findLast(T value) {
     var currentNode = this.first;
+    SinglyLinkedListNode<T>? searchNode;
     while (currentNode != null) {
       if (currentNode.value == value) {
-        var searchNode = currentNode;
-        
-        return searchNode;
+        searchNode = currentNode;
       }
       currentNode = currentNode.next;
     }
-    return null;
+    return searchNode;
   }
 
   ///
