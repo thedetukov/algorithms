@@ -142,13 +142,16 @@ class SinglyLinkedList<T> {
   /// Search first node by value. Return null if list does not contain such value
   ///
   SinglyLinkedListNode<T>? findFirst(T value) {
+    // Declare the local variable `currentNode` in the way we will remember the first node from the list
     var currentNode = this.first;
+    // In the loop, we check if the value of the `currentNode` is equal to the incoming value, return this node
     while (currentNode != null) {
       if (currentNode.value == value) {
         return currentNode;
       }
       currentNode = currentNode.next;
     }
+    // If there is no specified value in the list, we return nothing
     return null;
   }
 
@@ -156,7 +159,9 @@ class SinglyLinkedList<T> {
   /// Search last node by value. Return null if list does not contain such value.
   ///
   SinglyLinkedListNode<T>? findLast(T value) {
+    // Declare the local variable `currentNode` in the way we will remember the first node from the list
     var currentNode = this.first;
+    // Declare a variable with value null
     // ignore: avoid_init_to_null
     SinglyLinkedListNode<T>? searchNode = null;
     while (currentNode != null) {
