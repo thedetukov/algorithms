@@ -462,7 +462,7 @@ void main() {
       final SinglyLinkedListNode<String>? findNode =
           myList.findLast("Ninety Nine");
 
-      expect(findNode, secondAddedNode);
+      expect(findNode, equals(secondAddedNode));
     });
 
     test(
@@ -478,11 +478,11 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
       final SinglyLinkedListNode<String> fourthAddedNode =
-          myList.addLast("Ninety nine");
+          myList.addLast("Ninety Nine");
       final SinglyLinkedListNode<String>? findNode =
           myList.findLast("Ninety Nine");
 
-      expect(findNode, fourthAddedNode);
+      expect(findNode, equals(fourthAddedNode));
     });
 
     test("Search node by value if the value is no one in the list", () {

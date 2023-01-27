@@ -149,6 +149,7 @@ class SinglyLinkedList<T> {
       if (currentNode.value == value) {
         return currentNode;
       }
+      // Create a link to the next node
       currentNode = currentNode.next;
     }
     // If there is no specified value in the list, we return nothing
@@ -164,12 +165,16 @@ class SinglyLinkedList<T> {
     // Declare a variable with value null
     // ignore: avoid_init_to_null
     SinglyLinkedListNode<T>? searchNode = null;
+    // In the loop, we check if the value of the `currentNode` is equal to the incoming value and
+    // put the value into the searchNode variable at each iteration of the loop
     while (currentNode != null) {
       if (currentNode.value == value) {
         searchNode = currentNode;
       }
+      // Create a link to the next node
       currentNode = currentNode.next;
     }
+    // Return the last value of the list
     return searchNode;
   }
 
