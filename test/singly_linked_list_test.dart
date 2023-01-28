@@ -500,6 +500,68 @@ void main() {
       expect(findNode, isNull);
     });
   });
+
+  group("Tests for method remove", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test(
+        "Removes the first occurrence of the specified value the SinglyLinkedList<T> if first occurrence of the specified value is first item" ,
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+       myList.remove("Twelve");
+
+      expect(firstAddedNode, isNull);
+    });
+
+        test(
+        "Removes the first occurrence of the specified value the SinglyLinkedList<T> if first occurrence of the specified value is last item" ,
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+       myList.remove("Thirty Seven");
+
+      expect(thirdAddedNode, isNull);
+    });
+
+    test(
+        "Removes the first occurrence of the specified value from the SinglyLinkedList<T>",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> fourthAddedNode =
+          myList.addLast("Ninety Nine");
+
+       myList.remove("Ninety Nine");
+
+      expect(secondAddedNode, isNull);
+    });
+  });
+
   group("Unsorted", () {
     late SinglyLinkedList<String> myList;
     setUp(() {

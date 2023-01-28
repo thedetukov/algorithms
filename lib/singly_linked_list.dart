@@ -179,6 +179,12 @@ class SinglyLinkedList<T> {
   }
 
   ///
+  /// Removes the first occurrence of the specified value from the SinglyLinkedList<T>
+  ///
+  void remove(T value) {
+  }
+
+  ///
   /// This method removes all items of the list
   ///
   void clear() {
