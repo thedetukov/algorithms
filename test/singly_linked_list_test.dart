@@ -508,7 +508,7 @@ void main() {
     });
 
     test(
-        "Removes the first occurrence of the specified value the SinglyLinkedList<T> if first occurrence of the specified value is first item" ,
+        "Removes the first occurrence of the specified value the SinglyLinkedList<T> if first occurrence of the specified value is first item",
         () {
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
@@ -519,26 +519,28 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-       myList.remove("Twelve");
+      myList.remove("Twelve");
 
-      expect(firstAddedNode, isNull);
+      expect(firstAddedNode.next, isNull);
+      expect(myList.length, equals(2));
     });
 
-        test(
-        "Removes the first occurrence of the specified value the SinglyLinkedList<T> if first occurrence of the specified value is last item" ,
+    test(
+        "Removes the first occurrence of the specified value the SinglyLinkedList<T> if first occurrence of the specified value is last item",
         () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
-      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
        myList.remove("Thirty Seven");
 
-      expect(thirdAddedNode, isNull);
+      expect(secondAddedNode.next, isNull);
+      expect(myList.length, equals(2));
     });
 
     test(
@@ -556,9 +558,10 @@ void main() {
       final SinglyLinkedListNode<String> fourthAddedNode =
           myList.addLast("Ninety Nine");
 
-       myList.remove("Ninety Nine");
+      myList.remove("Ninety Nine");
 
-      expect(secondAddedNode, isNull);
+      expect(secondAddedNode.next, isNull);
+      expect(myList.length, equals(3));
     });
   });
 
