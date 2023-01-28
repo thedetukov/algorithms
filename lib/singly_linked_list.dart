@@ -182,6 +182,19 @@ class SinglyLinkedList<T> {
   /// Removes the first occurrence of the specified value from the SinglyLinkedList<T>
   ///
   void remove(T value) {
+    --_length;
+    var currentNode = this.first;
+    while (currentNode != null) {
+      if (currentNode.value == value) {
+        var nextNode = currentNode.next;
+        currentNode.next = null;
+        this.first = nextNode;
+      }
+      if (currentNode.value == null) {
+        throw FormatException("Specified value is not the list");
+      }
+      currentNode = currentNode.next;
+    }
   }
 
   ///
