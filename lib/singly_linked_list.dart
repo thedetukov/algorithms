@@ -187,6 +187,9 @@ class SinglyLinkedList<T> {
     while (currentNode != null) {
       if (currentNode.value == value) {
         if (currentNode != this.first) {
+          var nextNode = currentNode.next;
+          currentNode.next = null;
+          this.first = nextNode;
         } else if (currentNode == this.first) {
           var nextNode = currentNode.next;
           this.first = nextNode;
