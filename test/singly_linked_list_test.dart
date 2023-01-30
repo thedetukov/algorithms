@@ -519,6 +519,8 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
+      expect(myList.first, equals(firstAddedNode));
+
       myList.remove("Twelve");
 
       expect(firstAddedNode.next, isNull);
@@ -538,8 +540,11 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
+      expect(myList.last, equals(thirdAddedNode));
+
       myList.remove("Thirty Seven");
 
+      expect(myList.first, equals(firstAddedNode));
       expect(secondAddedNode.next, isNull);
       expect(myList.last, equals(secondAddedNode));
       expect(myList.length, equals(2));
@@ -559,11 +564,14 @@ void main() {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> fourthAddedNode =
           myList.addLast("Ninety Nine");
+      
+      expect(myList.first, equals(firstAddedNode));
 
       myList.remove("Ninety Nine");
 
       expect(secondAddedNode.next, isNull);
       expect(firstAddedNode.next, equals(thirdAddedNode));
+      expect(myList.last, equals(fourthAddedNode));
       expect(myList.length, equals(3));
     });
   });

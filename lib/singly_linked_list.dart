@@ -191,10 +191,10 @@ class SinglyLinkedList<T> {
           this.first = nextNode;
           currentNode.next = null;
         } else if (currentNode == this.last) {
-        } else if (currentNode != this.first && currentNode != this.last) {
-        } else if (currentNode.value == null) {
-          throw FormatException("Specified value is not the list");
-        }
+        } else if (currentNode != this.first && currentNode != this.last) {}
+      }
+      if (currentNode.value != value) {
+        throw FormatException("Specified value is not the list");
       }
       currentNode = currentNode.next;
     }
