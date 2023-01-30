@@ -525,6 +525,7 @@ void main() {
 
       expect(firstAddedNode.next, isNull);
       expect(myList.first, equals(secondAddedNode));
+      expect(secondAddedNode.next, equals(thirdAddedNode));
       expect(myList.length, equals(2));
     });
 
