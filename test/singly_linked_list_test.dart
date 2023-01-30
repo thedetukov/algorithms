@@ -522,7 +522,7 @@ void main() {
       myList.remove("Twelve");
 
       expect(firstAddedNode.next, isNull);
-      expect(myList.first, secondAddedNode);
+      expect(myList.first, equals(secondAddedNode));
       expect(myList.length, equals(2));
     });
 
@@ -541,7 +541,6 @@ void main() {
       myList.remove("Thirty Seven");
 
       expect(secondAddedNode.next, isNull);
-      expect(thirdAddedNode, isNull);
       expect(myList.length, equals(2));
     });
 
@@ -563,7 +562,7 @@ void main() {
       myList.remove("Ninety Nine");
 
       expect(secondAddedNode.next, isNull);
-      expect(myList.first, thirdAddedNode);
+      expect(firstAddedNode.next, equals(thirdAddedNode));
       expect(myList.length, equals(3));
     });
   });
