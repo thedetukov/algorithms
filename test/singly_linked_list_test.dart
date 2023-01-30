@@ -541,6 +541,7 @@ void main() {
       myList.remove("Thirty Seven");
 
       expect(secondAddedNode.next, isNull);
+      expect(myList.last, equals(secondAddedNode));
       expect(myList.length, equals(2));
     });
 
