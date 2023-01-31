@@ -616,7 +616,7 @@ void main() {
 
       myList.remove(removeNode);
 
-      expect(removeNode, isNot(myList));
+      expect(removeNode, throwsA(isException));
       expect(myList.length, equals(3));
     });
   });
