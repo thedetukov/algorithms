@@ -197,7 +197,6 @@ class SinglyLinkedList<T> {
       if (currentNode.value == null) {
         throw FormatException("Specified value is not the list");
       }
-
       currentNode = currentNode.next;
     }
   }

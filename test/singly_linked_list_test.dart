@@ -585,7 +585,7 @@ void main() {
       myList.remove("Twelve");
 
       expect(myList.first, isNull);
-      expect(addedNode, isNull);
+      expect(addedNode.next, isNull);
       expect(myList.length, equals(0));
     });
 
@@ -598,7 +598,7 @@ void main() {
       myList.remove("Twelve");
 
       expect(myList.last, isNull);
-      expect(addedNode, isNull);
+      expect(addedNode.next, isNull);
       expect(myList.length, equals(0));
     });
 
@@ -612,11 +612,15 @@ void main() {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
-      final removeNode = "Ten";
+      // ignore: avoid_init_to_null
+      Object? expectedException = null;
+      try {
+        myList.remove("Ten");
+      } catch (e) {
+        expectedException = e;
+      }
 
-      myList.remove(removeNode);
-
-      expect(removeNode, throwsA(isException));
+      expect(expectedException, isNotNull);
       expect(myList.length, equals(3));
     });
   });
