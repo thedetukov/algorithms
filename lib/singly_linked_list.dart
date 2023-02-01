@@ -192,7 +192,7 @@ class SinglyLinkedList<T> {
           this.first = nextNode;
           currentNode.next = null;
         } else if (currentNode == this.last) {
-          previousNode?.next = currentNode;
+          // previousNode?.next = currentNode;
           this.last = previousNode;
           previousNode?.next = currentNode.next;
           // previousNode?.next = null;
