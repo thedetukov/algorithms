@@ -194,7 +194,8 @@ class SinglyLinkedList<T> {
         } else if (currentNode == this.last) {
           previousNode?.next = currentNode;
           this.last = previousNode;
-          previousNode?.next = null;
+          previousNode?.next = currentNode.next;
+          // previousNode?.next = null;
         } else if (currentNode != this.first && currentNode != this.last) {}
       }
       if (currentNode.value == null) {
