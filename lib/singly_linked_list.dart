@@ -184,6 +184,7 @@ class SinglyLinkedList<T> {
   void remove(T value) {
     --_length;
     var currentNode = this.first;
+    var previousNode = currentNode?.next;
     while (currentNode != null) {
       if (currentNode.value == value) {
         if (currentNode == this.first) {
@@ -191,7 +192,9 @@ class SinglyLinkedList<T> {
           this.first = nextNode;
           currentNode.next = null;
         } else if (currentNode == this.last) {
-          // this.last = currentNode.next;
+          previousNode?.next = currentNode;
+          this.last = previousNode;
+          previousNode?.next = null;
         } else if (currentNode != this.first && currentNode != this.last) {}
       }
       if (currentNode.value == null) {
