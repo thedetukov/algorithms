@@ -87,8 +87,10 @@ class SinglyLinkedList<T> {
   void printList() {
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
     var currentNode = this.first;
+    var previousNode = currentNode?.next;
     // Create a loop to sort through all the nodes
     while (currentNode != null) {
+      print(previousNode?.value);
       // Display in the console a list of node values
       print(currentNode.value);
       // In current node pass the reference to the next node
@@ -191,8 +193,8 @@ class SinglyLinkedList<T> {
           this.first = previousNode;
           currentNode.next = null;
         } else if (currentNode == this.last) {
-          previousNode?.next = currentNode.next;
           this.last = previousNode;
+          previousNode?.next = currentNode.next;
         } else if (currentNode != this.first && currentNode != this.last) {}
       }
       if (currentNode.value == null) {
