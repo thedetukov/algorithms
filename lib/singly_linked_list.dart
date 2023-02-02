@@ -90,9 +90,12 @@ class SinglyLinkedList<T> {
     var previousNode = currentNode?.next;
     // Create a loop to sort through all the nodes
     while (currentNode != null) {
-      print(previousNode?.value);
-      // Display in the console a list of node values
-      print(currentNode.value);
+      T? prevValue = previousNode?.value;
+      T? currValue = currentNode.value;
+      print("prev value: $prevValue, current value: $currValue");
+      // print(previousNode?.value);
+      // // Display in the console a list of node values
+      // print(currentNode.value);
       // In current node pass the reference to the next node
       currentNode = currentNode.next;
     }
