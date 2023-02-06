@@ -576,7 +576,7 @@ void main() {
       expect(myList.length, equals(3));
     });
 
-    test("`first` changes if the first node is removed", () {
+    test("'first' changes if the first node is removed", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
       expect(myList.first, equals(addedNode));
@@ -589,7 +589,7 @@ void main() {
       expect(myList.length, equals(0));
     });
 
-    test("`last` changes if the last node is removed", () {
+    test("'last' changes if the last node is removed", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
       expect(myList.last, equals(addedNode));
@@ -602,7 +602,7 @@ void main() {
       expect(myList.length, equals(0));
     });
 
-    test("`value` is not in the list", () {
+    test("'value' is not in the list", () {
       // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");

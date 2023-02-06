@@ -43,7 +43,7 @@ class SinglyLinkedList<T> {
 
     // If the list is empty, the first element of the list is out,`first` = null
     if (this.first == null) {
-      // One element added to the list, it is the first and last items
+      // One element added to SinglyLinkedListNode<T>?the list, it is the first and last items
       this.first = nextNode;
       this.last = nextNode;
     } else {
@@ -85,17 +85,20 @@ class SinglyLinkedList<T> {
   /// This method prints all items of the list
   ///
   void printList() {
+    // Declare the local variable `currentNode` in the way we will remember the previous node from the list
+    SinglyLinkedListNode<T>? prevNode;
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    var currentNode = this.first;
-    var previousNode = currentNode?.next;
+    SinglyLinkedListNode<T>? currentNode = this.first;
     // Create a loop to sort through all the nodes
     while (currentNode != null) {
-      T? prevValue = previousNode?.value;
+      // Declare the local variable `prevNode` in the way we will remember the value of previous node
+      T? prevValue = prevNode?.value;
+      // Declare the local variable `currentNode` in the way we will remember the value of current node
       T? currValue = currentNode.value;
       print("prev value: $prevValue, current value: $currValue");
-      // print(previousNode?.value);
-      // // Display in the console a list of node values
-      // print(currentNode.value);
+
+      // In the variable `prevNode` in the way we will remember the current node
+      prevNode = currentNode;
       // In current node pass the reference to the next node
       currentNode = currentNode.next;
     }
@@ -124,7 +127,7 @@ class SinglyLinkedList<T> {
     return throw FormatException("Specified index is not the list");
   }
 
-  ///
+  ///SinglyLinkedListNode<T>?
   /// Adds a new node containing the specified value after the specified existing node in the SinglyLinkedList<T>.
   ///
   SinglyLinkedListNode<T> addAfter(SinglyLinkedListNode<T> node, T value) {
@@ -187,24 +190,37 @@ class SinglyLinkedList<T> {
   /// Removes the first occurrence of the specified value from the SinglyLinkedList<T>
   ///
   void remove(T value) {
-    --_length;
-    var currentNode = this.first;
-    var previousNode = currentNode?.next;
+    // Declare the local variable `prevNode` will remember is nothing
+    SinglyLinkedListNode<T>? prevNode;
+    // Declare the local variable `currentNode` will remember the first node from the list
+    SinglyLinkedListNode<T>? currentNode = this.first;
+    // In the loop, we check if the value of the `currentNode` is equal to the incoming value
     while (currentNode != null) {
+      // If the current value is equal to the input value
       if (currentNode.value == value) {
+        // If the current value is not 'first'
         if (currentNode == this.first) {
-          this.first = previousNode;
-          currentNode.next = null;
-        } else if (currentNode == this.last) {
-          this.last = previousNode;
-          previousNode?.next = currentNode.next;
-        } else if (currentNode != this.first && currentNode != this.last) {}
+          this.first = currentNode.next;
+        }
+        // If current value is not last
+        if (currentNode == this.last) {
+          this.last = prevNode;
+        }
+        // current value is not 'first' and 'last'
+        if (prevNode != null) {
+          prevNode.next = currentNode.next;
+        }
+        currentNode.next = null;
+        --this._length;
+        // If the specified value is removed, stop the loop
+        return;
       }
-      if (currentNode.value == null) {
-        throw FormatException("Specified value is not the list");
-      }
+      // In the local variable `prevNode` will remember the current node
+      prevNode = currentNode;
+      // In current node pass the reference to the next node
       currentNode = currentNode.next;
     }
+    throw FormatException("Specified value is not the list");
   }
 
   ///
