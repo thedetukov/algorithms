@@ -231,7 +231,7 @@ class SinglyLinkedList<T> {
         return prevNode;
       }
     }
-    throw FormatException("Specified node is not the list");
+    throw FormatException("Specified value is not the list");
   }
 
   ///
@@ -268,7 +268,7 @@ class SinglyLinkedList<T> {
       // In current node pass the reference to the next node
       currentNode = currentNode.next;
     }
-    throw FormatException("Specified value is not the list");
+    throw FormatException("Specified node is not the list");
   }
 
   ///
