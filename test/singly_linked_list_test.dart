@@ -651,8 +651,8 @@ void main() {
 
       expect(firstAddedNode.next, secondAddedNode);
     });
-
   });
+
   group("Tests for method removeNode", () {
     late SinglyLinkedList<String> myList;
     setUp(() {

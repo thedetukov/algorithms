@@ -238,20 +238,37 @@ class SinglyLinkedList<T> {
   /// Removes the specified node from the SinglyLinkedList<T>.
   ///
   void removeNode(SinglyLinkedListNode<T> node) {
-    SinglyLinkedListNode<T>? prevNode = this.getPrevNode(node);
-    if (node == this.first) {
-      this.first = node.next;
+    // Declare the local variable `prevNode` will remember is nothing
+    SinglyLinkedListNode<T>? prevNode;
+    // Declare the local variable `currentNode` will remember the first node from the list
+    SinglyLinkedListNode<T>? currentNode = this.first;
+    // In the loop, we check if the value of the `currentNode` is equal to the incoming value
+    while (currentNode != null) {
+      // If the current value is equal to the input value
+      if (currentNode == node) {
+        // If the current value is not 'first'
+        if (currentNode == this.first) {
+          this.first = currentNode.next;
+        }
+        // If current value is not last
+        if (currentNode == this.last) {
+          this.last = prevNode;
+        }
+        // current value is not 'first' and 'last'
+        if (prevNode != null) {
+          prevNode.next = currentNode.next;
+        }
+        currentNode.next = null;
+        --this._length;
+        // If the specified value is removed, stop the loop
+        return;
+      }
+      // In the local variable `prevNode` will remember the current node
+      prevNode = currentNode;
+      // In current node pass the reference to the next node
+      currentNode = currentNode.next;
     }
-    // If current value is not last
-    if (node == this.last) {
-      this.last = prevNode;
-    }
-    // current value is not 'first' and 'last'
-    if (prevNode != null) {
-      prevNode.next = node.next;
-    }
-    node.next = null;
-    --this._length;
+    throw FormatException("Specified value is not the list");
   }
 
   ///
