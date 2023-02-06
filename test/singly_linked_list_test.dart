@@ -651,6 +651,20 @@ void main() {
 
       expect(firstAddedNode.next, secondAddedNode);
     });
+
+    test("If three nodes into list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      myList.getPrevNode(thirdAddedNode);
+
+      expect(secondAddedNode.next, thirdAddedNode);
+    });
   });
 
   group("Tests for method removeNode", () {
