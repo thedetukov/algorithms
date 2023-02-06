@@ -242,19 +242,19 @@ class SinglyLinkedList<T> {
     SinglyLinkedListNode<T>? prevNode;
     // Declare the local variable `currentNode` will remember the first node from the list
     SinglyLinkedListNode<T>? currentNode = this.first;
-    // In the loop, we check if the value of the `currentNode` is equal to the incoming value
+    // In the loop, we check if the node of the `currentNode` is equal to the incoming node
     while (currentNode != null) {
-      // If the current value is equal to the input value
+      // If the current node is equal to the input node
       if (currentNode == node) {
-        // If the current value is not 'first'
+        // If the current node is not 'first'
         if (currentNode == this.first) {
           this.first = currentNode.next;
         }
-        // If current value is not last
+        // If current node is not last
         if (currentNode == this.last) {
           this.last = prevNode;
         }
-        // current value is not 'first' and 'last'
+        // current node is not 'first' and 'last'
         if (prevNode != null) {
           prevNode.next = currentNode.next;
         }
