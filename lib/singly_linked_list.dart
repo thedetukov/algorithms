@@ -169,7 +169,7 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? findLast(T value) {
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    var currentNode = this.first;
+    SinglyLinkedListNode<T>? currentNode = this.first;
     // Declare a variable with value null
     // ignore: avoid_init_to_null
     SinglyLinkedListNode<T>? searchNode = null;
@@ -221,6 +221,37 @@ class SinglyLinkedList<T> {
       currentNode = currentNode.next;
     }
     throw FormatException("Specified value is not the list");
+  }
+
+  SinglyLinkedListNode<T>? getPrevNode(SinglyLinkedListNode<T> node) {
+    SinglyLinkedListNode<T>? currentNode = this.first;
+    SinglyLinkedListNode<T>? prevNode;
+    while (currentNode != null) {
+      if (prevNode == node.next) {
+        return prevNode;
+      }
+    }
+    throw FormatException("Specified node is not the list");
+  }
+
+  ///
+  /// Removes the specified node from the SinglyLinkedList<T>.
+  ///
+  void removeNode(SinglyLinkedListNode<T> node) {
+    SinglyLinkedListNode<T>? prevNode = this.getPrevNode(node);
+    if (node == this.first) {
+      this.first = node.next;
+    }
+    // If current value is not last
+    if (node == this.last) {
+      this.last = prevNode;
+    }
+    // current value is not 'first' and 'last'
+    if (prevNode != null) {
+      prevNode.next = node.next;
+    }
+    node.next = null;
+    --this._length;
   }
 
   ///

@@ -625,6 +625,157 @@ void main() {
     });
   });
 
+  group("Tests for method getPrevNode", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test("If one node into list", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+
+      myList.getPrevNode(firstAddedNode);
+
+      expect(firstAddedNode.next, isNull);
+      expect(myList.first, myList.last);
+    });
+
+    test("If two nodes into list", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+
+      myList.getPrevNode(secondAddedNode);
+
+      expect(firstAddedNode.next, secondAddedNode);
+    });
+
+  });
+  group("Tests for method removeNode", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test(
+        "Removes the first occurrence of the specified node the SinglyLinkedList<T> if first occurrence of the specified node is first item",
+        () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      expect(myList.first, equals(firstAddedNode));
+
+      myList.removeNode(firstAddedNode);
+
+      expect(firstAddedNode.next, isNull);
+      expect(myList.first, equals(secondAddedNode));
+      expect(secondAddedNode.next, equals(thirdAddedNode));
+      expect(myList.length, equals(2));
+    });
+
+    test(
+        "Removes the first occurrence of the specified node the SinglyLinkedList<T> if first occurrence of the specified node is last item",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      expect(myList.last, equals(thirdAddedNode));
+
+      myList.removeNode(thirdAddedNode);
+
+      expect(myList.first, equals(firstAddedNode));
+      expect(secondAddedNode.next, isNull);
+      expect(myList.last, equals(secondAddedNode));
+      expect(myList.length, equals(2));
+    });
+
+    test(
+        "Removes the first occurrence of the specified node from the SinglyLinkedList<T>",
+        () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> fourthAddedNode =
+          myList.addLast("Ninety Nine");
+
+      expect(myList.first, equals(firstAddedNode));
+
+      myList.removeNode(secondAddedNode);
+
+      expect(secondAddedNode.next, isNull);
+      expect(firstAddedNode.next, equals(thirdAddedNode));
+      expect(myList.last, equals(fourthAddedNode));
+      expect(myList.length, equals(3));
+    });
+
+    test("'first' changes if the first node is removed", () {
+      final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
+
+      expect(myList.first, equals(addedNode));
+      expect(myList.length, equals(1));
+
+      myList.removeNode(addedNode);
+
+      expect(myList.first, isNull);
+      expect(addedNode.next, isNull);
+      expect(myList.length, equals(0));
+    });
+
+    test("'last' changes if the last node is removed", () {
+      final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
+
+      expect(myList.last, equals(addedNode));
+      expect(myList.length, equals(1));
+
+      myList.removeNode(addedNode);
+
+      expect(myList.last, isNull);
+      expect(addedNode.next, isNull);
+      expect(myList.length, equals(0));
+    });
+
+    test("Node is not in the list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      // ignore: avoid_init_to_null
+      Object? expectedException = null;
+      try {
+        myList.remove("Ten");
+      } catch (e) {
+        expectedException = e;
+      }
+
+      expect(expectedException, isNotNull);
+      expect(myList.length, equals(3));
+    });
+  });
   group("Unsorted", () {
     late SinglyLinkedList<String> myList;
     setUp(() {
