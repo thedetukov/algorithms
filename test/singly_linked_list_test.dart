@@ -662,7 +662,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      final prevNode =  myList.getPrevNode(secondAddedNode);
+      final prevNode = myList.getPrevNode(secondAddedNode);
 
       expect(prevNode, equals(firstAddedNode));
     });
@@ -816,10 +816,12 @@ void main() {
           myList.addLast("Thirty Seven");
 
       expect(myList.last, equals(thirdAddedNode));
+      expect(thirdAddedNode.next, isNull);
 
       myList.removeNode(thirdAddedNode);
 
       expect(myList.first, equals(firstAddedNode));
+      expect(thirdAddedNode.next, isNull);
       expect(secondAddedNode.next, isNull);
       expect(myList.last, equals(secondAddedNode));
       expect(myList.length, equals(2));

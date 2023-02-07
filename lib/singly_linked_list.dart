@@ -242,22 +242,18 @@ class SinglyLinkedList<T> {
   ///
   void removeNode(SinglyLinkedListNode<T> node) {
     // Declare the local variable `currentNode` will remember the first node from the list
-    SinglyLinkedListNode<T>? currentNode = this.first;
-
-    if (currentNode == null) {
-      throw FormatException("Specified node is not the list");
-    }
+    SinglyLinkedListNode<T>? currentNode = node;
 
     // Declare the local variable `prevNode` will remember is nothing
     SinglyLinkedListNode<T>? prevNode = this.getPrevNode(node);
     // In the loop, we check if the node of the `currentNode` is equal to the incoming node
 
-    // If the current value is not 'first'
-    if (currentNode == this.first) {
-      this.first = currentNode.next;
+    // If the current node is first
+    if (node == this.first) {
+      this.first = node.next;
     }
-    // If current value is not last
-    if (currentNode == this.last) {
+    // If current node is last
+    if (node == this.last) {
       this.last = prevNode;
     }
     // current value is not 'first' and 'last'
@@ -299,7 +295,7 @@ class SinglyLinkedList<T> {
 ///
 /// The class implements node for a Singly Linked List
 ///
-class SinglyLinkedListNode<T> {
+class SinglyLinkedListNode<T> extends Object {
   ///
   /// The field for the user data
   ///
@@ -314,4 +310,9 @@ class SinglyLinkedListNode<T> {
   /// Initializes a new instance of the LinkedListNode<T> class, containing the specified value
   ///
   SinglyLinkedListNode(this.value) : this.next = null;
+
+  @override
+  String toString() {
+    return "${this.value}";
+  }
 }
