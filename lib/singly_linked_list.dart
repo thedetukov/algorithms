@@ -260,7 +260,7 @@ class SinglyLinkedList<T> {
         }
         currentNode.next = null;
         --this._length;
-        // If the specified value is removed, stop the loop
+        // If the specified node is removed, stop the loop
         return;
       }
       // In the local variable `prevNode` will remember the current node
@@ -269,6 +269,13 @@ class SinglyLinkedList<T> {
       currentNode = currentNode.next;
     }
     throw FormatException("Specified node is not the list");
+  }
+
+  ///
+  /// Removes the node at the start of the SinglyLinkedList<T>.
+  ///
+  void removeFirstNode(SinglyLinkedListNode<T> node){
+    
   }
 
   ///

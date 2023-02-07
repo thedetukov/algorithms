@@ -638,7 +638,7 @@ void main() {
       myList.getPrevNode(firstAddedNode);
 
       expect(firstAddedNode.next, isNull);
-      expect(myList.first, myList.last);
+      expect(myList.first, equals(myList.last));
     });
 
     test("If two nodes into list", () {
@@ -649,7 +649,7 @@ void main() {
 
       myList.getPrevNode(secondAddedNode);
 
-      expect(firstAddedNode.next, secondAddedNode);
+      expect(firstAddedNode.next, equals(secondAddedNode));
     });
 
     test("If three nodes into list", () {
@@ -663,7 +663,46 @@ void main() {
 
       myList.getPrevNode(thirdAddedNode);
 
-      expect(secondAddedNode.next, thirdAddedNode);
+      expect(secondAddedNode.next, equals(thirdAddedNode));
+    });
+  });
+
+  group("Tests for method removeFirstNode", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test("If node the first into list", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      myList.removeFirstNode(firstAddedNode);
+
+      expect(firstAddedNode.next, isNull);
+      expect(myList.length, equals(2));
+    });
+
+    test("If node the last into list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      myList.removeFirstNode(thirdAddedNode);
+
+      expect(secondAddedNode.next, isNull);
+      expect(myList.length, equals(2));
     });
   });
 
