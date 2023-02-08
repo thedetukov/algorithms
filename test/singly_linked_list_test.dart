@@ -676,13 +676,29 @@ void main() {
       myList = SinglyLinkedList<String>();
     });
 
+    test("If list is empty", () {
+      // ignore: avoid_init_to_null
+      Object? expectedException = null;
+      try {
+        myList.removeFirstNode();
+      } catch (e) {
+        expectedException = e;
+      }
+
+      expect(expectedException, isNotNull);
+      expect(myList.length, equals(0));
+      expect(myList.first, isNull);
+      expect(myList.last, isNull);
+    });
+
     test("If one node into list", () {
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
 
       expect(myList.length, equals(1));
+      expect(myList.first, equals(myList.last));
 
-      myList.getPrevNode(firstAddedNode);
+      myList.removeFirstNode();
 
       expect(firstAddedNode.next, isNull);
       expect(myList.length, equals(0));
@@ -690,7 +706,7 @@ void main() {
       expect(myList.last, isNull);
     });
 
-    test("Іf there are multiple nodes in the list", () {
+    test("If there are multiple nodes in the list", () {
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
       // ignore: unused_local_variable
@@ -704,82 +720,11 @@ void main() {
           myList.addLast("Ninety Nine");
 
       expect(myList.length, equals(4));
+      expect(firstAddedNode.next, secondAddedNode);
 
-      myList.removeFirstNode(secondAddedNode);
-
-      expect(firstAddedNode.next, thirdAddedNode);
-      expect(secondAddedNode, isNull);
-      expect(myList.length, equals(3));
-    });
-
-    test("If node the first into list", () {
-      final SinglyLinkedListNode<String> firstAddedNode =
-          myList.addLast("Twelve");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> secondAddedNode =
-          myList.addLast("Ninety Nine");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> thirdAddedNode =
-          myList.addLast("Twelve");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> forthAddedNode =
-          myList.addLast("Thirty Seven");
-
-      expect(myList.length, equals(4));
-      expect(myList.first, equals(firstAddedNode));
-
-      myList.removeFirstNode(firstAddedNode);
+      myList.removeFirstNode();
 
       expect(firstAddedNode.next, isNull);
-      expect(myList.length, equals(3));
-      expect(myList.first, equals(secondAddedNode));
-    });
-
-    test("If node the last into list", () {
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> firstAddedNode =
-          myList.addLast("Twelve");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> secondAddedNode =
-          myList.addLast("Ninety Nine");
-      final SinglyLinkedListNode<String> thirdAddedNode =
-          myList.addLast("Thirty Seven");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> forthAddedNode =
-          myList.addLast("Ninety Nine");
-
-      expect(myList.length, equals(4));
-      expect(myList.last, equals(forthAddedNode));
-      expect(forthAddedNode.next, isNull);
-
-      myList.removeFirstNode(forthAddedNode);
-
-      expect(thirdAddedNode.next, isNull);
-      expect(forthAddedNode, isNull);
-      expect(myList.length, equals(3));
-    });
-
-    test("If 'value' is not in the list", () {
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> firstAddedNode =
-          myList.addLast("Twelve");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> secondAddedNode =
-          myList.addLast("Ninety Nine");
-      // ignore: unused_local_variable
-      final SinglyLinkedListNode<String> thirdAddedNode =
-          myList.addLast("Thirty Seven");
-      final SinglyLinkedListNode<String> forthAddedNode =
-          SinglyLinkedListNode("Ten");
-      // ignore: avoid_init_to_null
-      Object? expectedException = null;
-      try {
-        myList.removeFirstNode(forthAddedNode);
-      } catch (e) {
-        expectedException = e;
-      }
-
-      expect(expectedException, isNotNull);
       expect(myList.length, equals(3));
     });
   });

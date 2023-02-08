@@ -227,7 +227,7 @@ class SinglyLinkedList<T> {
   /// Removes the specified node from the SinglyLinkedList<T>.
   ///
   void removeNode(SinglyLinkedListNode<T> node) {
-    // Declare the local variable `prevNode` will remember is nothing
+    // Declare the local variable `prevNode`
     final SinglyLinkedListNode<T>? prevNode = this.getPrevNode(node);
     // In the loop, we check if the node of the `currentNode` is equal to the incoming node
     this._nodes(prevNode, node);
@@ -237,11 +237,11 @@ class SinglyLinkedList<T> {
     SinglyLinkedListNode<T>? prevNode,
     SinglyLinkedListNode<T> currentNode,
   ) {
-    // If the current value is not 'first'
+    // If the current value is 'first'
     if (currentNode == this.first) {
       this.first = currentNode.next;
     }
-    // If current value is not last
+    // If current value is last
     if (currentNode == this.last) {
       this.last = prevNode;
     }
@@ -256,7 +256,39 @@ class SinglyLinkedList<T> {
   ///
   /// Removes the node at the start of the SinglyLinkedList<T>.
   ///
-  void removeFirstNode(SinglyLinkedListNode<T> node) {}
+  void removeFirstNode() {
+    SinglyLinkedListNode<T>? currentNode = this.first;
+    if (currentNode == null) {
+      throw FormatException("The list is empty");
+    }
+    if (currentNode.next != null) {
+      this.first = currentNode.next;
+      currentNode.next = null;
+    } else {
+      this.first = null;
+      this.last = null;
+    }
+    --this._length;
+  }
+
+  ///
+  /// Removes the node at the end of the SinglyLinkedList<T>.
+  ///
+  void removeLastNode() {
+    SinglyLinkedListNode<T>? lastNode = this.last;
+    if (lastNode == null) {
+      throw Exception("The list is empty");
+    }
+    final SinglyLinkedListNode<T>? prevNode = this.getPrevNode(lastNode);
+    if (prevNode != null) {
+      prevNode.next = null;
+      this.last = prevNode;
+    } else {
+      this.first = null;
+      this.last = null;
+    }
+    --this._length;
+  }
 
   ///
   /// This method removes all items of the list
