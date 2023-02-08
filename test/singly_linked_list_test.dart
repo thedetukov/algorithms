@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dart_class_application/singly_linked_list.dart';
 import 'package:test/test.dart';
 
@@ -684,10 +686,11 @@ void main() {
 
       expect(firstAddedNode.next, isNull);
       expect(myList.length, equals(0));
-      expect(myList.first, equals(myList.last));
+      expect(myList.first, isNull);
+      expect(myList.last, isNull);
     });
 
-    test("If node into list", () {
+    test("Іf there are multiple nodes in the list", () {
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
       // ignore: unused_local_variable
@@ -705,6 +708,7 @@ void main() {
       myList.removeFirstNode(secondAddedNode);
 
       expect(firstAddedNode.next, thirdAddedNode);
+      expect(secondAddedNode, isNull);
       expect(myList.length, equals(3));
     });
 
@@ -728,6 +732,7 @@ void main() {
 
       expect(firstAddedNode.next, isNull);
       expect(myList.length, equals(3));
+      expect(myList.first, equals(secondAddedNode));
     });
 
     test("If node the last into list", () {
@@ -744,9 +749,13 @@ void main() {
           myList.addLast("Ninety Nine");
 
       expect(myList.length, equals(4));
-      myList.removeFirstNode(thirdAddedNode);
+      expect(myList.last, equals(forthAddedNode));
+      expect(forthAddedNode.next, isNull);
+
+      myList.removeFirstNode(forthAddedNode);
 
       expect(thirdAddedNode.next, isNull);
+      expect(forthAddedNode, isNull);
       expect(myList.length, equals(3));
     });
 

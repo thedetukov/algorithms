@@ -198,21 +198,7 @@ class SinglyLinkedList<T> {
     while (currentNode != null) {
       // If the current value is equal to the input value
       if (currentNode.value == value) {
-        // If the current value is not 'first'
-        if (currentNode == this.first) {
-          this.first = currentNode.next;
-        }
-        // If current value is not last
-        if (currentNode == this.last) {
-          this.last = prevNode;
-        }
-        // current value is not 'first' and 'last'
-        if (prevNode != null) {
-          prevNode.next = currentNode.next;
-        }
-        currentNode.next = null;
-        --this._length;
-        // If the specified value is removed, stop the loop
+        this._nodes(prevNode, currentNode);
         return;
       }
       // In the local variable `prevNode` will remember the current node
@@ -241,19 +227,22 @@ class SinglyLinkedList<T> {
   /// Removes the specified node from the SinglyLinkedList<T>.
   ///
   void removeNode(SinglyLinkedListNode<T> node) {
-    // Declare the local variable `currentNode` will remember the first node from the list
-    SinglyLinkedListNode<T>? currentNode = node;
-
     // Declare the local variable `prevNode` will remember is nothing
-    SinglyLinkedListNode<T>? prevNode = this.getPrevNode(node);
+    final SinglyLinkedListNode<T>? prevNode = this.getPrevNode(node);
     // In the loop, we check if the node of the `currentNode` is equal to the incoming node
+    this._nodes(prevNode, node);
+  }
 
-    // If the current node is first
-    if (node == this.first) {
-      this.first = node.next;
+  void _nodes(
+    SinglyLinkedListNode<T>? prevNode,
+    SinglyLinkedListNode<T> currentNode,
+  ) {
+    // If the current value is not 'first'
+    if (currentNode == this.first) {
+      this.first = currentNode.next;
     }
-    // If current node is last
-    if (node == this.last) {
+    // If current value is not last
+    if (currentNode == this.last) {
       this.last = prevNode;
     }
     // current value is not 'first' and 'last'
@@ -262,8 +251,6 @@ class SinglyLinkedList<T> {
     }
     currentNode.next = null;
     --this._length;
-    // If the specified value is removed, stop the loop
-    return;
   }
 
   ///
