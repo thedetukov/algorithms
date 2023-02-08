@@ -17,19 +17,19 @@ class SinglyLinkedList<T> {
   ///
   /// The field for the first element of the list
   ///
-  SinglyLinkedListNode<T>? first;
+  SinglyLinkedListNode<T>? firstNode;
 
   ///
   /// The field for the last element of the list
   ///
-  SinglyLinkedListNode<T>? last;
+  SinglyLinkedListNode<T>? lastNode;
 
   ///
   /// Initializes a new instances of the LinkedList<T> class, containing the specified values
   ///
   SinglyLinkedList()
-      : this.first = null,
-        this.last = null,
+      : this.firstNode = null,
+        this.lastNode = null,
         this._length = 0;
 
   ///
@@ -42,16 +42,16 @@ class SinglyLinkedList<T> {
     SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
 
     // If the list is empty, the first element of the list is out,`first` = null
-    if (this.first == null) {
+    if (this.firstNode == null) {
       // One element added to SinglyLinkedListNode<T>?the list, it is the first and last items
-      this.first = nextNode;
-      this.last = nextNode;
+      this.firstNode = nextNode;
+      this.lastNode = nextNode;
     } else {
       // Create a link from the last node of the list to a new node
-      this.last?.next = nextNode;
+      this.lastNode?.next = nextNode;
 
       // Installed node is the last item in the list
-      this.last = nextNode;
+      this.lastNode = nextNode;
     }
 
     return nextNode;
@@ -67,15 +67,15 @@ class SinglyLinkedList<T> {
     SinglyLinkedListNode<T> nextNode = SinglyLinkedListNode<T>(value);
 
     // If the list is empty, the first element of the list is out,`first` = null
-    if (this.first == null) {
+    if (this.firstNode == null) {
       // One element added to the list, it is the first and last items
-      this.first = nextNode;
-      this.last = nextNode;
+      this.firstNode = nextNode;
+      this.lastNode = nextNode;
     } else {
       // Create a link to the first node
-      nextNode.next = this.first;
+      nextNode.next = this.firstNode;
       // In first we will remember added node implementation without extra variable
-      this.first = nextNode;
+      this.firstNode = nextNode;
     }
 
     return nextNode;
@@ -88,7 +88,7 @@ class SinglyLinkedList<T> {
     // Declare the local variable `currentNode` in the way we will remember the previous node from the list
     SinglyLinkedListNode<T>? prevNode;
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    SinglyLinkedListNode<T>? currentNode = this.first;
+    SinglyLinkedListNode<T>? currentNode = this.firstNode;
     // Create a loop to sort through all the nodes
     while (currentNode != null) {
       // Declare the local variable `prevNode` in the way we will remember the value of previous node
@@ -109,7 +109,7 @@ class SinglyLinkedList<T> {
   //
   SinglyLinkedListNode<T> getByIndex(int index) {
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    var currentNode = this.first;
+    var currentNode = this.firstNode;
     // Declare the local variable `counter` with value 0
     int counter = 0;
     // Create a loop to sort through all the nodes and check that the node is not equal null
@@ -140,7 +140,7 @@ class SinglyLinkedList<T> {
     node.next = addNode;
     // Change the last if the added node is at the end of the list
     if (addNode.next == null) {
-      this.last = addNode;
+      this.lastNode = addNode;
     }
 
     return addNode;
@@ -151,7 +151,7 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? findFirst(T value) {
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    var currentNode = this.first;
+    var currentNode = this.firstNode;
     // In the loop, we check if the value of the `currentNode` is equal to the incoming value, return this node
     while (currentNode != null) {
       if (currentNode.value == value) {
@@ -169,7 +169,7 @@ class SinglyLinkedList<T> {
   ///
   SinglyLinkedListNode<T>? findLast(T value) {
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    SinglyLinkedListNode<T>? currentNode = this.first;
+    SinglyLinkedListNode<T>? currentNode = this.firstNode;
     // Declare a variable with value null
     // ignore: avoid_init_to_null
     SinglyLinkedListNode<T>? searchNode = null;
@@ -193,7 +193,7 @@ class SinglyLinkedList<T> {
     // Declare the local variable `prevNode` will remember is nothing
     SinglyLinkedListNode<T>? prevNode;
     // Declare the local variable `currentNode` will remember the first node from the list
-    SinglyLinkedListNode<T>? currentNode = this.first;
+    SinglyLinkedListNode<T>? currentNode = this.firstNode;
     // In the loop, we check if the value of the `currentNode` is equal to the incoming value
     while (currentNode != null) {
       // If the current value is equal to the input value
@@ -210,7 +210,7 @@ class SinglyLinkedList<T> {
   }
 
   SinglyLinkedListNode<T>? getPrevNode(SinglyLinkedListNode<T> node) {
-    SinglyLinkedListNode<T>? currentNode = this.first;
+    SinglyLinkedListNode<T>? currentNode = this.firstNode;
     if (currentNode == node) {
       return null;
     }
@@ -238,12 +238,12 @@ class SinglyLinkedList<T> {
     SinglyLinkedListNode<T> currentNode,
   ) {
     // If the current value is 'first'
-    if (currentNode == this.first) {
-      this.first = currentNode.next;
+    if (currentNode == this.firstNode) {
+      this.firstNode = currentNode.next;
     }
     // If current value is last
-    if (currentNode == this.last) {
-      this.last = prevNode;
+    if (currentNode == this.lastNode) {
+      this.lastNode = prevNode;
     }
     // current value is not 'first' and 'last'
     if (prevNode != null) {
@@ -257,16 +257,16 @@ class SinglyLinkedList<T> {
   /// Removes the node at the start of the SinglyLinkedList<T>.
   ///
   void removeFirstNode() {
-    SinglyLinkedListNode<T>? currentNode = this.first;
+    SinglyLinkedListNode<T>? currentNode = this.firstNode;
     if (currentNode == null) {
       throw FormatException("The list is empty");
     }
     if (currentNode.next != null) {
-      this.first = currentNode.next;
+      this.firstNode = currentNode.next;
       currentNode.next = null;
     } else {
-      this.first = null;
-      this.last = null;
+      this.firstNode = null;
+      this.lastNode = null;
     }
     --this._length;
   }
@@ -275,17 +275,17 @@ class SinglyLinkedList<T> {
   /// Removes the node at the end of the SinglyLinkedList<T>.
   ///
   void removeLastNode() {
-    SinglyLinkedListNode<T>? lastNode = this.last;
+    SinglyLinkedListNode<T>? lastNode = this.lastNode;
     if (lastNode == null) {
       throw Exception("The list is empty");
     }
     final SinglyLinkedListNode<T>? prevNode = this.getPrevNode(lastNode);
     if (prevNode != null) {
       prevNode.next = null;
-      this.last = prevNode;
+      this.lastNode = prevNode;
     } else {
-      this.first = null;
-      this.last = null;
+      this.firstNode = null;
+      this.lastNode = null;
     }
     --this._length;
   }
@@ -296,7 +296,7 @@ class SinglyLinkedList<T> {
   void clear() {
     this._length = 0;
     // Declare the local variable `currentNode` in the way we will remember the first node from the list
-    var currentNode = this.first;
+    var currentNode = this.firstNode;
     // Create a loop to sort through all the nodes current node we remove the reference to the previous node
     while (currentNode?.next != null) {
       final nextNode = currentNode?.next;
@@ -306,8 +306,8 @@ class SinglyLinkedList<T> {
       currentNode = nextNode;
     }
     // When the list is empty, `first` = null and `last` = null
-    this.first = null;
-    this.last = null;
+    this.firstNode = null;
+    this.lastNode = null;
   }
 }
 

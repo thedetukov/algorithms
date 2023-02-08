@@ -15,11 +15,11 @@ void main() {
     });
 
     test("For the newly created list, first should be null", () {
-      expect(myList.first, isNull);
+      expect(myList.firstNode, isNull);
     });
 
     test("For the newly created list, last should be null", () {
-      expect(myList.last, isNull);
+      expect(myList.lastNode, isNull);
     });
   });
 
@@ -71,7 +71,7 @@ void main() {
 
       myList.clear();
 
-      expect(myList.first, isNull);
+      expect(myList.firstNode, isNull);
     });
 
     test("First should be null after clear ", () {
@@ -86,7 +86,7 @@ void main() {
 
       myList.clear();
 
-      expect(myList.first, isNull);
+      expect(myList.firstNode, isNull);
     });
 
     test("Last after clear should be null", () {
@@ -101,7 +101,7 @@ void main() {
 
       myList.clear();
 
-      expect(myList.last, isNull);
+      expect(myList.lastNode, isNull);
     });
 
     test("Last should be null after clear ", () {
@@ -116,7 +116,7 @@ void main() {
 
       myList.clear();
 
-      expect(myList.last, isNull);
+      expect(myList.lastNode, isNull);
     });
 
     test("First node after clear should reference to null in property next",
@@ -261,7 +261,7 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addAfter(firstAddedNode, "Ninety Nine");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
     });
 
     test("After add two nodes into list last should be secondAddedNode", () {
@@ -271,7 +271,7 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addAfter(firstAddedNode, "Ninety Nine");
 
-      expect(myList.last, equals(secondAddedNode));
+      expect(myList.lastNode, equals(secondAddedNode));
     });
 
     test(
@@ -310,7 +310,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addAfter(firstAddedNode, "Thirty Seven");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
     });
 
     test(
@@ -324,7 +324,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addAfter(firstAddedNode, "Thirty Seven");
 
-      expect(myList.last, equals(secondAddedNode));
+      expect(myList.lastNode, equals(secondAddedNode));
     });
 
     test(
@@ -340,7 +340,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addAfter(secondAddedNode, "Thirty Seven");
 
-      expect(myList.last, equals(thirdAddedNode));
+      expect(myList.lastNode, equals(thirdAddedNode));
     });
 
     test(
@@ -521,12 +521,12 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
 
       myList.remove("Twelve");
 
       expect(firstAddedNode.next, isNull);
-      expect(myList.first, equals(secondAddedNode));
+      expect(myList.firstNode, equals(secondAddedNode));
       expect(secondAddedNode.next, equals(thirdAddedNode));
       expect(myList.length, equals(2));
     });
@@ -543,13 +543,13 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.last, equals(thirdAddedNode));
+      expect(myList.lastNode, equals(thirdAddedNode));
 
       myList.remove("Thirty Seven");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
       expect(secondAddedNode.next, isNull);
-      expect(myList.last, equals(secondAddedNode));
+      expect(myList.lastNode, equals(secondAddedNode));
       expect(myList.length, equals(2));
     });
 
@@ -568,25 +568,25 @@ void main() {
       final SinglyLinkedListNode<String> fourthAddedNode =
           myList.addLast("Ninety Nine");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
 
       myList.remove("Ninety Nine");
 
       expect(secondAddedNode.next, isNull);
       expect(firstAddedNode.next, equals(thirdAddedNode));
-      expect(myList.last, equals(fourthAddedNode));
+      expect(myList.lastNode, equals(fourthAddedNode));
       expect(myList.length, equals(3));
     });
 
     test("'first' changes if the first node is removed", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
-      expect(myList.first, equals(addedNode));
+      expect(myList.firstNode, equals(addedNode));
       expect(myList.length, equals(1));
 
       myList.remove("Twelve");
 
-      expect(myList.first, isNull);
+      expect(myList.firstNode, isNull);
       expect(addedNode.next, isNull);
       expect(myList.length, equals(0));
     });
@@ -594,12 +594,12 @@ void main() {
     test("'last' changes if the last node is removed", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
-      expect(myList.last, equals(addedNode));
+      expect(myList.lastNode, equals(addedNode));
       expect(myList.length, equals(1));
 
       myList.remove("Twelve");
 
-      expect(myList.last, isNull);
+      expect(myList.lastNode, isNull);
       expect(addedNode.next, isNull);
       expect(myList.length, equals(0));
     });
@@ -687,8 +687,8 @@ void main() {
 
       expect(expectedException, isNotNull);
       expect(myList.length, equals(0));
-      expect(myList.first, isNull);
-      expect(myList.last, isNull);
+      expect(myList.firstNode, isNull);
+      expect(myList.lastNode, isNull);
     });
 
     test("If one node into list", () {
@@ -697,14 +697,14 @@ void main() {
           myList.addLast("Twelve");
 
       expect(myList.length, equals(1));
-      expect(myList.first, equals(myList.last));
+      expect(myList.firstNode, equals(myList.lastNode));
       expect(firstAddedNode.next, isNull);
 
       myList.removeFirstNode();
 
       expect(myList.length, equals(0));
-      expect(myList.first, isNull);
-      expect(myList.last, isNull);
+      expect(myList.firstNode, isNull);
+      expect(myList.lastNode, isNull);
     });
 
     test("If there are multiple nodes in the list", () {
@@ -747,8 +747,8 @@ void main() {
 
       expect(expectedException, isNotNull);
       expect(myList.length, equals(0));
-      expect(myList.first, isNull);
-      expect(myList.last, isNull);
+      expect(myList.firstNode, isNull);
+      expect(myList.lastNode, isNull);
     });
 
     test("If one node into list", () {
@@ -756,14 +756,14 @@ void main() {
           myList.addLast("Twelve");
 
       expect(myList.length, equals(1));
-      expect(myList.first, equals(myList.last));
+      expect(myList.firstNode, equals(myList.lastNode));
       expect(firstAddedNode.next, isNull);
 
       myList.removeLastNode();
 
       expect(myList.length, equals(0));
-      expect(myList.first, isNull);
-      expect(myList.last, isNull);
+      expect(myList.firstNode, isNull);
+      expect(myList.lastNode, isNull);
     });
 
     test("If there are multiple nodes in the list", () {
@@ -807,12 +807,12 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
 
       myList.removeNode(firstAddedNode);
 
       expect(firstAddedNode.next, isNull);
-      expect(myList.first, equals(secondAddedNode));
+      expect(myList.firstNode, equals(secondAddedNode));
       expect(secondAddedNode.next, equals(thirdAddedNode));
       expect(myList.length, equals(2));
     });
@@ -829,15 +829,15 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.last, equals(thirdAddedNode));
+      expect(myList.lastNode, equals(thirdAddedNode));
       expect(thirdAddedNode.next, isNull);
 
       myList.removeNode(thirdAddedNode);
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
       expect(thirdAddedNode.next, isNull);
       expect(secondAddedNode.next, isNull);
-      expect(myList.last, equals(secondAddedNode));
+      expect(myList.lastNode, equals(secondAddedNode));
       expect(myList.length, equals(2));
     });
 
@@ -856,25 +856,25 @@ void main() {
       final SinglyLinkedListNode<String> fourthAddedNode =
           myList.addLast("Ninety Nine");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
 
       myList.removeNode(secondAddedNode);
 
       expect(secondAddedNode.next, isNull);
       expect(firstAddedNode.next, equals(thirdAddedNode));
-      expect(myList.last, equals(fourthAddedNode));
+      expect(myList.lastNode, equals(fourthAddedNode));
       expect(myList.length, equals(3));
     });
 
     test("'first' changes if the first node is removed", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
-      expect(myList.first, equals(addedNode));
+      expect(myList.firstNode, equals(addedNode));
       expect(myList.length, equals(1));
 
       myList.removeNode(addedNode);
 
-      expect(myList.first, isNull);
+      expect(myList.firstNode, isNull);
       expect(addedNode.next, isNull);
       expect(myList.length, equals(0));
     });
@@ -882,12 +882,12 @@ void main() {
     test("'last' changes if the last node is removed", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
-      expect(myList.last, equals(addedNode));
+      expect(myList.lastNode, equals(addedNode));
       expect(myList.length, equals(1));
 
       myList.removeNode(addedNode);
 
-      expect(myList.last, isNull);
+      expect(myList.lastNode, isNull);
       expect(addedNode.next, isNull);
       expect(myList.length, equals(0));
     });
@@ -947,7 +947,7 @@ void main() {
     test("After add first node into list first should be addedNode", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
-      expect(myList.first, equals(addedNode));
+      expect(myList.firstNode, equals(addedNode));
     });
 
     test(
@@ -955,13 +955,13 @@ void main() {
         () {
       final SinglyLinkedListNode<String> addedNode = myList.addFirst("Twelve");
 
-      expect(myList.first, equals(addedNode));
+      expect(myList.firstNode, equals(addedNode));
     });
 
     test("After add first node into list last should be addedNode", () {
       final SinglyLinkedListNode<String> addedNode = myList.addLast("Twelve");
 
-      expect(myList.last, equals(addedNode));
+      expect(myList.lastNode, equals(addedNode));
     });
 
     test(
@@ -969,7 +969,7 @@ void main() {
         () {
       final SinglyLinkedListNode<String> addedNode = myList.addFirst("Twelve");
 
-      expect(myList.last, equals(addedNode));
+      expect(myList.lastNode, equals(addedNode));
     });
 
     test(
@@ -981,7 +981,7 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addLast("Ninety Nine");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
     });
 
     test(
@@ -993,7 +993,7 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("Ninety Nine");
 
-      expect(myList.first, equals(secondAddedNode));
+      expect(myList.firstNode, equals(secondAddedNode));
     });
 
     test(
@@ -1005,7 +1005,7 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addLast("Ninety Nine");
 
-      expect(myList.last, equals(secondAddedNode));
+      expect(myList.lastNode, equals(secondAddedNode));
     });
 
     test(
@@ -1017,7 +1017,7 @@ void main() {
       final SinglyLinkedListNode<String> secondAddedNode =
           myList.addFirst("Ninety Nine");
 
-      expect(myList.last, equals(firstAddedNode));
+      expect(myList.lastNode, equals(firstAddedNode));
     });
 
     test(
@@ -1082,7 +1082,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
     });
 
     test(
@@ -1097,7 +1097,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Thirty Seven");
 
-      expect(myList.first, equals(thirdAddedNode));
+      expect(myList.firstNode, equals(thirdAddedNode));
     });
 
     test(
@@ -1172,7 +1172,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.last, equals(thirdAddedNode));
+      expect(myList.lastNode, equals(thirdAddedNode));
     });
 
     test(
@@ -1187,7 +1187,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Thirty Seven");
 
-      expect(myList.last, equals(firstAddedNode));
+      expect(myList.lastNode, equals(firstAddedNode));
     });
 
     test(
@@ -1202,7 +1202,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addLast("Thirty Seven");
 
-      expect(myList.first, equals(firstAddedNode));
+      expect(myList.firstNode, equals(firstAddedNode));
     });
 
     test(
@@ -1217,7 +1217,7 @@ void main() {
       final SinglyLinkedListNode<String> thirdAddedNode =
           myList.addFirst("Thirty Seven");
 
-      expect(myList.first, equals(thirdAddedNode));
+      expect(myList.firstNode, equals(thirdAddedNode));
     });
 
     test("Print all items of a list (addLast)", () {
