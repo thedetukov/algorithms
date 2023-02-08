@@ -692,15 +692,16 @@ void main() {
     });
 
     test("If one node into list", () {
+      // ignore: unused_local_variable
       final SinglyLinkedListNode<String> firstAddedNode =
           myList.addLast("Twelve");
 
       expect(myList.length, equals(1));
       expect(myList.first, equals(myList.last));
+      expect(firstAddedNode.next, isNull);
 
       myList.removeFirstNode();
 
-      expect(firstAddedNode.next, isNull);
       expect(myList.length, equals(0));
       expect(myList.first, isNull);
       expect(myList.last, isNull);
@@ -725,6 +726,65 @@ void main() {
       myList.removeFirstNode();
 
       expect(firstAddedNode.next, isNull);
+      expect(myList.length, equals(3));
+    });
+  });
+
+  group("Tests for method removeLastNode", () {
+    late SinglyLinkedList<String> myList;
+    setUp(() {
+      myList = SinglyLinkedList<String>();
+    });
+
+    test("If list is empty", () {
+      // ignore: avoid_init_to_null
+      Object? expectedException = null;
+      try {
+        myList.removeLastNode();
+      } catch (e) {
+        expectedException = e;
+      }
+
+      expect(expectedException, isNotNull);
+      expect(myList.length, equals(0));
+      expect(myList.first, isNull);
+      expect(myList.last, isNull);
+    });
+
+    test("If one node into list", () {
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+
+      expect(myList.length, equals(1));
+      expect(myList.first, equals(myList.last));
+      expect(firstAddedNode.next, isNull);
+
+      myList.removeLastNode();
+
+      expect(myList.length, equals(0));
+      expect(myList.first, isNull);
+      expect(myList.last, isNull);
+    });
+
+    test("If there are multiple nodes in the list", () {
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      // ignore: unused_local_variable
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+      final SinglyLinkedListNode<String> forthAddedNode =
+          myList.addLast("Ninety Nine");
+
+      expect(myList.length, equals(4));
+      expect(thirdAddedNode.next, forthAddedNode);
+
+      myList.removeLastNode();
+
+      expect(forthAddedNode.next, isNull);
       expect(myList.length, equals(3));
     });
   });
