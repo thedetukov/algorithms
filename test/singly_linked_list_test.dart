@@ -914,6 +914,71 @@ void main() {
       expect(myList.length, equals(3));
     });
   });
+
+  group("Test Iterable", () {
+    test("Iterator", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      final List<String> results = [];
+
+      final Iterator<String> myListIterator =
+          SinglyLinkedListIterator<String>(myList.firstNode);
+
+      while (myListIterator.moveNext()) {
+        results.add(myListIterator.current);
+      }
+
+      expect(results.length, equals(3));
+      expect(results[0], equals(firstAddedNode.value));
+      expect(results[1], equals(secondAddedNode.value));
+      expect(results[2], equals(thirdAddedNode.value));
+    });
+
+    test("for-each", () {
+      final SinglyLinkedList<String> myList = SinglyLinkedList<String>();
+
+      final SinglyLinkedListNode<String> firstAddedNode =
+          myList.addLast("Twelve");
+      final SinglyLinkedListNode<String> secondAddedNode =
+          myList.addLast("Ninety Nine");
+      final SinglyLinkedListNode<String> thirdAddedNode =
+          myList.addLast("Thirty Seven");
+
+      final List<String> results = [];
+
+      for (final String currentNode in myList) {
+        results.add(currentNode);
+      }
+      
+      expect(results, hasLength(3));
+      expect(results.length, equals(3));
+      expect(results[0], equals(firstAddedNode.value));
+      expect(results[1], equals(secondAddedNode.value));
+      expect(results[2], equals(thirdAddedNode.value));
+    });
+
+    test("range", () {
+      final List<int> results = [];
+
+      for (final int v in Range(1, 3)) {
+        results.add(v);
+      }
+
+      expect(results, hasLength(3));
+      expect(results.length, equals(3));
+      expect(results[0], equals(1));
+      expect(results[1], equals(2));
+      expect(results[2], equals(3));
+    });
+  });
+
   group("Unsorted", () {
     late SinglyLinkedList<String> myList;
     setUp(() {

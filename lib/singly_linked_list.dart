@@ -3,10 +3,11 @@
 ///
 /// See https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
 ///
-class SinglyLinkedList<T> {
+class SinglyLinkedList<T> extends Iterable<T> {
   ///
   /// Gets the number of elements contained in the list
   ///
+  @override
   int get length => this._length;
 
   ///
@@ -309,6 +310,13 @@ class SinglyLinkedList<T> {
     this.firstNode = null;
     this.lastNode = null;
   }
+
+  @override
+  Iterator<T> get iterator {
+    final Iterator<T> myListIterator =
+        SinglyLinkedListIterator<T>(this.firstNode);
+    return myListIterator;
+  }
 }
 
 ///
@@ -333,5 +341,89 @@ class SinglyLinkedListNode<T> extends Object {
   @override
   String toString() {
     return "${this.value}";
+  }
+}
+
+class SinglyLinkedListIterator<T> extends Iterator<T> {
+  final SinglyLinkedListNode<T>? initialNode;
+  SinglyLinkedListNode<T>? _currentNode;
+
+  SinglyLinkedListIterator(this.initialNode);
+
+  @override
+  T get current {
+    final SinglyLinkedListNode<T>? node = this._currentNode;
+    if (node == null) {
+      throw Exception("Current node is null");
+    } else {
+      return node.value;
+    }
+  }
+
+  @override
+  bool moveNext() {
+    final SinglyLinkedListNode<T>? node = this._currentNode;
+    if (node != null) {
+      if (node.next == null) {
+        // node is last node
+        return false;
+      } else {
+        this._currentNode = node.next;
+        return true;
+      }
+    } else {
+      if (this.initialNode == null) {
+        return false;
+      } else {
+        this._currentNode = this.initialNode;
+        return true;
+      }
+    }
+  }
+}
+
+class Range extends Iterable<int> {
+  final int from;
+  final int to;
+
+  Range(this.from, this.to);
+
+  @override
+  Iterator<int> get iterator => RangeIterator(from, to);
+}
+
+class RangeIterator extends Iterator<int> {
+  final int initialFrom;
+  final int initialTo;
+  int? _currentValue;
+
+  RangeIterator(this.initialFrom, this.initialTo);
+
+  @override
+  int get current {
+    final int? value = this._currentValue;
+    if (value == null) {
+      throw Exception(
+          "Current value is null. Please try to use first method moveNext");
+    } else {
+      return value;
+    }
+  }
+
+  @override
+  bool moveNext() {
+    final int? value = this._currentValue;
+
+    if (value == null) {
+      this._currentValue = initialFrom;
+      return true;
+    }
+
+    if (value == initialTo) {
+      return false;
+    }
+
+    this._currentValue = value + 1;
+    return true;
   }
 }
