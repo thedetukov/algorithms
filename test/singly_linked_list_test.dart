@@ -956,7 +956,7 @@ void main() {
       for (final String currentNode in myList) {
         results.add(currentNode);
       }
-      
+
       expect(results, hasLength(3));
       expect(results.length, equals(3));
       expect(results[0], equals(firstAddedNode.value));
